@@ -7,6 +7,10 @@
         "start": "node dist/index.js",
         "test": "mocha --reporter spec --compilers ts:ts-node/register test/**/*.test.ts"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hisham02/FieldBookingSystem/"
+    },
     "keywords": [],
     "author": "",
     "license": "ISC",
