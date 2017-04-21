@@ -7,10 +7,12 @@ import app from '../src/App';
 chai.use(chaiHttp);
 const expect = chai.expect;
 
+
+// test 1
 describe('GET api/v1/heroes', () => {
 
   it('responds with JSON array', () => {
-    return chai.request(app).get('/api/v1/heroes')
+    return chai.request(app).get('/api/heroes')
       .then(res => {
         expect(res.status).to.equal(200);
         expect(res).to.be.json;
@@ -20,7 +22,7 @@ describe('GET api/v1/heroes', () => {
   });
 
   it('should include Wolverine', () => {
-    return chai.request(app).get('/api/v1/heroes')
+    return chai.request(app).get('/api/heroes')
       .then(res => {
         let Wolverine = res.body.find(hero => hero.name === 'Wolverine');
         expect(Wolverine).to.exist;
@@ -39,10 +41,12 @@ describe('GET api/v1/heroes', () => {
   });
 });
 
+
+// test 2
 describe('GET api/v1/heroes/:id', () => {
   
     it('responds with single JSON object', () => {
-      return chai.request(app).get('/api/v1/heroes/1')
+      return chai.request(app).get('/api/heroes/1')
         .then(res => {
           expect(res.status).to.equal(200);
           expect(res).to.be.json;
@@ -51,7 +55,7 @@ describe('GET api/v1/heroes/:id', () => {
     });
 
     it('should return Luke Cage', () => {
-      return chai.request(app).get('/api/v1/heroes/1')
+      return chai.request(app).get('/api/heroes/1')
         .then(res => {
           expect(res.body.hero.name).to.equal('Luke Cage');
         });

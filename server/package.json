@@ -2,9 +2,9 @@
     "name": "server",
     "version": "1.0.0",
     "description": "FieldBookingSystem",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
-        "start": "node dist/index.js",
+        "start": "gulp scripts assets && node dist/server.js",
         "test": "mocha --reporter spec --compilers ts:ts-node/register test/**/*.test.ts"
     },
     "repository": {
