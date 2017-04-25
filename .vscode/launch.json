@@ -16,7 +16,7 @@
                 "node_modules/**/*.js"
             ],
             "outFiles": [
-                "${workspaceRoot}/dist/**/*.js"
+                "${workspaceRoot}/server/dist/**/*.js"
             ],
             "sourceMaps": true,
             "stopOnEntry": true,

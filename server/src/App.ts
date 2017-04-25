@@ -3,16 +3,19 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import HeroRouter from './routes/hero-route';
+import DbClient from './db-client'
 
 // Creates and configures an ExpressJS web server.
 class App {
 
   // ref to Express instance
   public express: express.Application;
+  private client: DbClient;
 
   //Run configuration methods on the Express instance.
   constructor() {
     this.express = express();
+    this.client = new DbClient();
     this.middleware();
     this.routes();
   }
@@ -35,6 +38,10 @@ class App {
       res.json({
         message: 'Hello World!'
       });
+    });
+    router.get('/all', (req, res) => {
+          this.client.accessTransportation(res, {}).then(
+            (list) => { res.send(list); });
     });
     this.express.use('/', router);
     this.express.use(HeroRouter);
