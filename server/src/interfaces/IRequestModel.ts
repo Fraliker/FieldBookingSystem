@@ -10,7 +10,6 @@ interface IRequestModel extends Mongoose.Document {
     status: string;
     requestDateTime: Date;
     createdDateTime: Date;
-    
 }
 
 export default IRequestModel;
