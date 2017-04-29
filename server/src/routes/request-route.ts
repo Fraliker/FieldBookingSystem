@@ -27,27 +27,11 @@ export class RequestRouter {
     
     // getting all requests
     this.router.get('/api/request/', (req, res) => {
-        this.RequestService.retrieveAllRequests(res);
+        this.RequestService.retrieveAvailableRequests(res);
         return res;
     });
 
-    // getting a single request
-    this.router.get('/api/request', (req, res) => {
-        var urlParts = url.parse(req.url, true);
-        var query = urlParts.query;
-        var requestId = query.requestId;
-        
-        this.RequestService.retrieveFieldRequest(res, requestId);
-
-        return res;
-    });
-
-
-    // posting new fields
-    this.router.post('/api/request/', (req, res) => {  
-        var jsonObj = req.body;
-        var id = this.FieldService.addNewField(jsonObj);
-    });
+   
     
     
   }
