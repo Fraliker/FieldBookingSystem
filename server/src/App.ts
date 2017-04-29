@@ -6,8 +6,11 @@ import * as bodyParser from 'body-parser';
 import HeroRouter from './routes/hero-route';
 import ListRouter from './routes/list-route';
 import TaskRouter from './routes/task-route';
+
 import RequestRouter from './routes/request-route';
 import FieldRouter from './routes/field-route';
+import FieldTypeRouter from './routes/field-type-route';
+import SportRouter from './routes/sport-route';
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -35,8 +38,11 @@ class App {
     this.express.use(HeroRouter);
     this.express.use(ListRouter);
     this.express.use(TaskRouter);
+    
     this.express.use(RequestRouter);
     this.express.use(FieldRouter);
+    this.express.use(FieldTypeRouter);
+    this.express.use(SportRouter);
 
   }
 
