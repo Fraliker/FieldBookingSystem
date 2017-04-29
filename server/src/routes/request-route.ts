@@ -27,13 +27,22 @@ export class RequestRouter {
     
     // getting all requests
     this.router.get('/api/request/', (req, res) => {
-        this.RequestService.retrieveAvailableRequests(res);
+        this.RequestService.retrieveRequests(res);
         return res;
     });
 
-   
-    
-    
+    // adding a new field request
+    this.router.post('/api/request/', (req, res) => {  
+        var jsonObj = req.body;
+        var id = this.RequestService.addRequest(jsonObj);
+    });
+
+    // updating an existing field request
+    this.router.put('/api/request/:requestId', (req, res) => {  
+        var requestId = req.params.requestId;
+        var jsonObj = req.body;
+        var id = this.RequestService.addRequest(jsonObj);
+    });
   }
 
 }

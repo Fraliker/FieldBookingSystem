@@ -1,21 +1,16 @@
 import Mongoose = require("mongoose");
 
-interface IFieldModel extends Mongoose.Document {
+interface IRequestModel extends Mongoose.Document {
+    requestId: number;
+    userId: number;
     fieldId: number;
-    adminId: number
-    fieldName: string;
-    fieldHourlyPrice: number;
-    description: string;
-    imageFileURL: string;
-    address: string;
-    sport: [ {
-        sportName: string;
-        sportId: number;
-    }];
-    fieldType: [ {
-        fieldTypeName: string;
-        fieldTypeId: number;
-    }];
+    duration: number;
+    purpose: string;
+    totalPrice: number;
+    status: string;
+    requestDateTime: Date;
+    createdDateTime: Date;
+    
 }
 
-export default IFieldModel;
+export default IRequestModel;

@@ -1,8 +1,8 @@
 import {Router, Request, Response, NextFunction} from 'express';
-import RequestModel from '../models/FieldModel';
-//import RequestModel from '../models/RequestModel';
-//import SportModel from '../models/SportModel';
-//import RequestTypeModel from '../models/RequestTypeModel';
+import FieldModel from '../models/FieldModel';
+import RequestModel from '../models/RequestModel';
+import SportModel from '../models/SportModel';
+import FieldTypeModel from '../models/FieldTypeModel';
 import DataAccess from '../data-access';
 
 export class RequestService {
@@ -15,7 +15,7 @@ export class RequestService {
         this.idGenerator = 100;
     }
 
-    public retrieveAvailableRequests(response:any): any {
+    public retrieveRequests(response:any): any {
         // logic to retrieve available Requests (mongo code)
         var query = this.RequestModel.model.find({});
         query.exec( (err, itemArray) => {
@@ -23,7 +23,7 @@ export class RequestService {
         });
     }
 
-    public addNewRequest(jsonObj): any {
+    public addRequest(jsonObj): any {
         // logic to retrieve available Requests (mongo code)
         var query = this.RequestModel.model.find({});
         query.exec( (err, itemArray) => {
@@ -37,5 +37,9 @@ export class RequestService {
         query.exec( (err, itemArray) => {
             
         });
+    }
+
+    public setRequestStatus(status: string) {
+
     }
 }
