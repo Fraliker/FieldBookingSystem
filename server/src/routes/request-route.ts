@@ -31,6 +31,12 @@ export class RequestRouter {
         return res;
     });
 
+    // getting user request
+    this.router.get('/api/request/:userId', (req, res) => {
+        //this.RequestService.retrieveRequests(res);
+        return res;
+    });
+
     // getting details of a single request
     this.router.get('/api/request/details', (req, res) => {
         var urlParts = url.parse(req.url, true);
@@ -39,7 +45,7 @@ export class RequestRouter {
     });
 
     // adding a new field request
-    this.router.post('/api/request/', (req, res) => {  
+    this.router.post('/api/request/:userId', (req, res) => {  
         var jsonObj = req.body;
         var id = this.RequestService.addRequest(jsonObj);
     });

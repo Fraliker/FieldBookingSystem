@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
 
@@ -9,6 +9,9 @@ import { FieldListViewComponent } from './field-list-view/field-list-view.compon
 import { HeaderComponent } from './header/header.component';
 import { SearchOptionsComponent } from './search-options/search-options.component';
 import { SideNavFiltersComponent } from './side-nav-filters/side-nav-filters.component';
+import { AgmCoreModule } from "angular2-google-maps/core";
+import {} from '@types/googlemaps';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,12 @@ import { SideNavFiltersComponent } from './side-nav-filters/side-nav-filters.com
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyDBfDjJ6j9xIO22sZseNJc9CUceIdWLMnU",
+      libraries: ["places"]
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

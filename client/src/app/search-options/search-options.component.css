@@ -243,3 +243,7 @@
     background-color: white;
     color: black;
 }
+
+.sebm-google-map-container {
+    height: 300px;
+}
