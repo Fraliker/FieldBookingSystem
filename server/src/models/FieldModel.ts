@@ -18,7 +18,12 @@ export default class FieldModel {
         this.schema =  mongoose.Schema(
             {
                 fieldId: Number,
-                adminId: Number,
+                admin: {
+                    adminUserName: String,
+                    adminId: Number,
+                    organization: String,
+                    phoneNo: String
+                },
                 fieldName: String,
                 fieldHourlyPrice: Number,
                 description: String,

@@ -134,7 +134,12 @@ fieldsCollection.remove({});
 
 fieldsCollection.insert({
     fieldId: 1,
-    adminId: 1,
+    admin: {
+        adminUserName: "admin1",
+        adminId: 1,
+        organization: "organization1",
+        phoneNumber: 2066189002
+    },
     fieldName: "Ballard Playground Baseball/Softball Field #1",
     fieldHourlyPrice: 60,
     description: "Ballard Playfield is adjacent to Ballard Community Center and Adams Elementary School. It is a multi-purpose playfield featuring a children's play area and a soccer/baseball/softball field.",
@@ -156,8 +161,13 @@ fieldsCollection.insert({
 });
 
 fieldsCollection.insert({
-    fieldId: 1,
-    adminId: 1,
+    fieldId: 2,
+    admin: {
+        adminUserName: "admin1",
+        adminId: 1,
+        organization: "organization1",
+        phoneNumber: 2066189002
+    },
     fieldName: "Bobby Morris Field (at Cal Anderson Park) Soccer Field",
     fieldHourlyPrice: 80,
     description: "Cal Anderson is located in Seattle's Capitol Hill neighborhood and is the hub of the community. Cal Anderson Park includes a fountain, texture pool and reflecting pool, promenade paths, landscaping, a shelterhouse, a plaza, a children's play area, a wading pool, a lighted sports field, and a number of oversize chess boards. This open park invites walking, sitting, reading, contemplation, informal sports in the meadow, and organized sports on the athletic field.",
@@ -186,7 +196,40 @@ requestsCollection.remove({});
 
 requestsCollection.insert({
     requestId: 1,
-    fieldId: 1,
+    field: {
+        fieldId: 1,
+        admin: {
+            adminUserName: "admin1",
+            adminId: 1,
+            organization: "organization1",
+            phoneNumber: 2066189002
+        },
+        fieldName: "Ballard Playground Baseball/Softball Field #1",
+        fieldHourlyPrice: 60,
+        description: "Ballard Playfield is adjacent to Ballard Community Center and Adams Elementary School. It is a multi-purpose playfield featuring a children's play area and a soccer/baseball/softball field.",
+        imageFileURL: "https://www.seattle.gov/images/Departments/ParksAndRecreation/Parks/MNOP/MagnoliaPlayfield1.jpg",
+        address: "2644 NW 60th St., Seattle, WA 98107",
+        sport: [{
+                sportName: "Baseball",
+                sportId: 4
+            },
+            {
+                sportName: "Softball",
+                sportId: 6
+            }
+        ],
+        fieldType: [{
+            fieldTypeName: "Grass",
+            fieldTypeId: 2
+        }]
+    },
+    user: {
+        userName: "user1",
+        userId: 1,
+        firstName: "Hesham",
+        lastName: "Alsaeedi",
+        phoneNo: "206-618-9002"
+    },
     duration: 120,
     purpose: "little league baseball",
     totalPrice: 200,
@@ -197,7 +240,35 @@ requestsCollection.insert({
 
 requestsCollection.insert({
     requestId: 2,
-    fieldId: 2,
+    field: {
+        fieldId: 2,
+        admin: {
+            adminUserName: "admin1",
+            adminId: 1,
+            organization: "organization1",
+            phoneNumber: 2066189002
+        },
+        fieldName: "Bobby Morris Field (at Cal Anderson Park) Soccer Field",
+        fieldHourlyPrice: 80,
+        description: "Cal Anderson is located in Seattle's Capitol Hill neighborhood and is the hub of the community. Cal Anderson Park includes a fountain, texture pool and reflecting pool, promenade paths, landscaping, a shelterhouse, a plaza, a children's play area, a wading pool, a lighted sports field, and a number of oversize chess boards. This open park invites walking, sitting, reading, contemplation, informal sports in the meadow, and organized sports on the athletic field.",
+        imageFileURL: "https://media-cdn.tripadvisor.com/media/photo-s/07/96/6d/0d/cal-anderson-park.jpg",
+        address: "1635 11th Ave., Seattle, WA 98122",
+        sport: [{
+            sportName: "Soccer",
+            sportId: 1
+        }],
+        fieldType: [{
+            fieldTypeName: "Turf",
+            fieldTypeId: 1
+        }]
+    },
+    user: {
+        userName: "user2",
+        userId: 2,
+        firstName: "James",
+        lastName: "Barracca",
+        phoneNo: "206-618-9002"
+    },
     duration: 90,
     purpose: "playing soccer with friends",
     totalPrice: 200,

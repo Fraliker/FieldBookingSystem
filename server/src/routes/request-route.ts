@@ -26,19 +26,20 @@ export class RequestRouter {
   init() {
     
     // getting all requests
-    this.router.get('/api/request/', (req, res) => {
-        this.RequestService.retrieveRequests(res);
+    this.router.get('/api/request', (req, res) => {
+        this.RequestService.retrieveAllRequests(res);
+        return res;
+    });
+
+    // getting all requests for admin
+    this.router.get('/api/request/:adminId', (req, res) => {
+        var adminId = req.params.adminId;
+        this.RequestService.retrieveRequests(res, adminId);
         return res;
     });
 
     // getting user request
     this.router.get('/api/request/:userId', (req, res) => {
-        //this.RequestService.retrieveRequests(res);
-        return res;
-    });
-
-    // getting user request
-    this.router.get('/api/request/admin/:adminId', (req, res) => {
         //this.RequestService.retrieveRequests(res);
         return res;
     });
