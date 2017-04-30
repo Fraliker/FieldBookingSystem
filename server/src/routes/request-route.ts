@@ -27,34 +27,46 @@ export class RequestRouter {
     
     // getting all requests
     this.router.get('/api/request/', (req, res) => {
-        this.RequestService.retrieveAllRequests(res);
+        this.RequestService.retrieveRequests(res);
         return res;
     });
 
-    // getting a single request
-    this.router.get('/api/request', (req, res) => {
+    // getting user request
+    this.router.get('/api/request/:userId', (req, res) => {
+        //this.RequestService.retrieveRequests(res);
+        return res;
+    });
+
+    // getting user request
+    this.router.get('/api/request/admin/:adminId', (req, res) => {
+        //this.RequestService.retrieveRequests(res);
+        return res;
+    });
+
+    // getting details of a single request
+    this.router.get('/api/request/details', (req, res) => {
         var urlParts = url.parse(req.url, true);
-        var query = urlParts.query;
-        var requestId = query.requestId;
-        
-        this.RequestService.retrieveFieldRequest(res, requestId);
-
+        this.RequestService.retrieveRequestDetails(res, {requestId: urlParts.query.requestId});
         return res;
     });
 
-
-    // posting new fields
-    this.router.post('/api/request/', (req, res) => {  
+    // adding a new field request
+    this.router.post('/api/request/:userId', (req, res) => {  
         var jsonObj = req.body;
-        var id = this.FieldService.addNewField(jsonObj);
+        var id = this.RequestService.addRequest(jsonObj);
     });
-    
-    
+
+    // updating an existing field request
+    this.router.put('/api/request/:requestId', (req, res) => {  
+        var requestId = req.params.requestId;
+        var jsonObj = req.body;
+        var id = this.RequestService.addRequest(jsonObj);
+    });
   }
 
 }
 
-// Create the ListRouter, and export its configured Express.Router
+// Create the RequestRouter, and export its configured Express.Router
 const requestRoutes = new RequestRouter();
 requestRoutes.init();
 

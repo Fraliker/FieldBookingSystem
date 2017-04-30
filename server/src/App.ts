@@ -7,6 +7,10 @@ import HeroRouter from './routes/hero-route';
 import ListRouter from './routes/list-route';
 import TaskRouter from './routes/task-route';
 
+import RequestRouter from './routes/request-route';
+import FieldRouter from './routes/field-route';
+import FieldTypeRouter from './routes/field-type-route';
+import SportRouter from './routes/sport-route';
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -31,22 +35,14 @@ class App {
   // Configure API endpoints.
   private routes(): void {
     
-    let router = express.Router();
-    
-    // placeholder route handler
-    router.get('/', (req, res, next) => {
-      res.json({
-        message: 'Hello World!'
-      });
-    });
-
-    this.express.use('/', router);
     this.express.use(HeroRouter);
     this.express.use(ListRouter);
     this.express.use(TaskRouter);
-
-
     
+    this.express.use(RequestRouter);
+    this.express.use(FieldRouter);
+    this.express.use(FieldTypeRouter);
+    this.express.use(SportRouter);
 
   }
 

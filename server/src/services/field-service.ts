@@ -1,8 +1,5 @@
 import {Router, Request, Response, NextFunction} from 'express';
 import FieldModel from '../models/FieldModel';
-//import RequestModel from '../models/RequestModel';
-//import SportModel from '../models/SportModel';
-//import FieldTypeModel from '../models/FieldTypeModel';
 import DataAccess from '../data-access';
 
 export class FieldService {
