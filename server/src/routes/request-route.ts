@@ -34,7 +34,7 @@ export class RequestRouter {
     // getting details of a single request
     this.router.get('/api/request/details', (req, res) => {
         var urlParts = url.parse(req.url, true);
-        this.RequestService.retrieveRequestDetails(res, {requestId: urlParts.query.requestId;});
+        this.RequestService.retrieveRequestDetails(res, {requestId: urlParts.query.requestId});
         return res;
     });
 
