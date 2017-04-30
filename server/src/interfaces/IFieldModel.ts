@@ -2,7 +2,12 @@ import Mongoose = require("mongoose");
 
 interface IFieldModel extends Mongoose.Document {
     fieldId: number;
-    adminId: number
+    admin: {
+        adminUserName: string;
+        adminId: number;
+        organization: string;
+        phoneNo: string;
+    },
     fieldName: string;
     fieldHourlyPrice: number;
     description: string;

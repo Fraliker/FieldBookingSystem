@@ -3,6 +3,7 @@ import FieldModel from '../models/FieldModel';
 import RequestModel from '../models/RequestModel';
 import SportModel from '../models/SportModel';
 import FieldTypeModel from '../models/FieldTypeModel';
+import UserModel from '../models/UserModel';
 import DataAccess from '../data-access';
 
 export class RequestService {
@@ -15,11 +16,19 @@ export class RequestService {
         this.idGenerator = 100;
     }
 
-    public retrieveRequests(response:any): any {
+    public retrieveRequests(response:any, adminId: number): any {
         // logic to retrieve available Requests (mongo code)
-        var query = this.RequestModel.model.find({});
+        var query = this.RequestModel.model
+                        .find({'field.admin.adminId': adminId})
         query.exec( (err, itemArray) => {
             response.json(itemArray) ;
+        });
+    }
+
+    public retrieveAllRequests(response: any) : any {
+        var query = this.RequestModel.model.find({});
+        query.exec( (err, itemArray) => {
+            response.json(itemArray);
         });
     }
 
