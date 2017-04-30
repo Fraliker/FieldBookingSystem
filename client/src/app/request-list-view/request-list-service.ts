@@ -11,14 +11,13 @@ export class RequestListService {
     private headers: Headers;
 
     constructor(private http: Http) {
-        this.WebApiUrl = config.WebApiBaseUrl + '/requests/admin';
+        this.WebApiUrl = config.WebApiBaseUrl + '/request';
 
     }
 
-    getRequests(adminId) {
-      
+    getRequests(adminId) {  
       return this.http.get(this.WebApiUrl + '/' + adminId)
-                      .map((response: Response) => <any>response.json())
+                      .map((response: Response) => response.json())
                       .catch(this.handleError);
     }
 
