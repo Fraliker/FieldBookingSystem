@@ -21,7 +21,7 @@ export default class AdminModel {
                 adminId: Number,
                 organization: String,
                 phoneNo: String,
-            }, {collection: 'Admins'}
+            }, {collection: 'admins'}
         );
     }
 

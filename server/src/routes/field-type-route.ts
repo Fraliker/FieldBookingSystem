@@ -25,7 +25,7 @@ export class FieldTypeRouter {
    */
   init() {
     
-    this.router.get('/app/fieldType/', (req, res) => {
+    this.router.get('/api/fieldType/', (req, res) => {
         this.FieldTypeService.retrieveAllFieldTypes(res);
     });
   }

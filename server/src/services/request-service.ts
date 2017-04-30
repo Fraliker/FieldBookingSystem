@@ -23,6 +23,14 @@ export class RequestService {
         });
     }
 
+    public retrieveRequestDetails(response: any, filter:Object) {
+        var query = this.RequestModel.model.findOne(filter);
+        query.exec( (err, itemArray) => {
+            response.json(itemArray);
+        });
+    }
+
+
     public addRequest(jsonObj): any {
         // logic to retrieve available Requests (mongo code)
         var query = this.RequestModel.model.find({});

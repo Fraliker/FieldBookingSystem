@@ -24,7 +24,7 @@ export class SportRouter {
    * endpoints.
    */
   init() {
-    this.router.get('/app/sport/', (req, res) => {
+    this.router.get('/api/sport/', (req, res) => {
         this.SportService.retrieveAllSports(res);
     });
   }

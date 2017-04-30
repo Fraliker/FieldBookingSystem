@@ -19,7 +19,7 @@ export default class SportModel {
             {
                 sportName: String,
                 sportId: Number,
-            }, {collection: 'Sports'}
+            }, {collection: 'sports'}
         );
     }
 

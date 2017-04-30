@@ -19,7 +19,7 @@ export default class FieldTypeModel {
             {
                 fieldTypeName: String,
                 fieldTypeId: Number
-            }, {collection: 'FieldTypes'}
+            }, {collection: 'fieldTypes'}
         );
     }
 

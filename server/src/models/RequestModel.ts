@@ -26,7 +26,7 @@ export default class RequestModel {
                 status: String,
                 requestDateTime: Date,
                 createdDateTime: Date,
-            }, {collection: 'Requests'}
+            }, {collection: 'requests'}
         );
     }
 

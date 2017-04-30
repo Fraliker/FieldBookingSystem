@@ -32,7 +32,7 @@ export default class FieldModel {
                     fieldTypeName: String,
                     fieldTypeId: Number,
                 }],
-            }, {collection: 'Fields'}
+            }, {collection: 'fields'}
         );
     }
 

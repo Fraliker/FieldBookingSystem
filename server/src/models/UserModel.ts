@@ -22,7 +22,7 @@ export default class UserModel {
                 firstName: String,
                 lastName: String,
                 phoneNo: String
-            }, {collection: 'Users'}
+            }, {collection: 'users'}
         );
     }
 

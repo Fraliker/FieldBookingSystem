@@ -31,6 +31,13 @@ export class RequestRouter {
         return res;
     });
 
+    // getting details of a single request
+    this.router.get('/api/request/details', (req, res) => {
+        var urlParts = url.parse(req.url, true);
+        this.RequestService.retrieveRequestDetails(res, {requestId: urlParts.query.requestId;});
+        return res;
+    });
+
     // adding a new field request
     this.router.post('/api/request/', (req, res) => {  
         var jsonObj = req.body;
@@ -47,7 +54,7 @@ export class RequestRouter {
 
 }
 
-// Create the ListRouter, and export its configured Express.Router
+// Create the RequestRouter, and export its configured Express.Router
 const requestRoutes = new RequestRouter();
 requestRoutes.init();
 
