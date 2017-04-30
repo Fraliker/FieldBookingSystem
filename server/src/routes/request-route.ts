@@ -37,6 +37,12 @@ export class RequestRouter {
         return res;
     });
 
+    // getting user request
+    this.router.get('/api/request/admin/:adminId', (req, res) => {
+        //this.RequestService.retrieveRequests(res);
+        return res;
+    });
+
     // getting details of a single request
     this.router.get('/api/request/details', (req, res) => {
         var urlParts = url.parse(req.url, true);
