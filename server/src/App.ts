@@ -27,6 +27,13 @@ class App {
 
   // Configure Express middleware.
   private middleware(): void {
+    this.express.use(function (req, res, next) {
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+      res.header('access-Control-Allow-Origin', '*');
+      next();
+    });
+
     this.express.use(logger('dev'));
     this.express.use(bodyParser.json());
     this.express.use(bodyParser.urlencoded({ extended: false }));

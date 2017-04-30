@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { RequestListService } from './request-list-service';
+import { LocalDataSource } from 'ng2-smart-table';
+import {DataTableModule,SharedModule} from 'primeng/primeng';
+
+
 
 
 @Component({
@@ -13,14 +17,11 @@ export class RequestListViewComponent implements OnInit {
 
   private settings = {
     columns: {
+      'field.fieldId': {
+        title: 'Field ID'
+      },
       requestId: {
         title: 'Request ID'
-      },
-      username: {
-        title: 'User Name'
-      },
-      fieldName: {
-        title: 'Field'
       },
       requestDateTime: {
         title: 'Request DateTime'
@@ -33,24 +34,29 @@ export class RequestListViewComponent implements OnInit {
 
   };
 
+  private source: LocalDataSource;
+
   private adminId: number;
   private errorMessage;
   private data = [];
+  private response;
+  selectedResponse;
 
   constructor(private RequestListService: RequestListService) {
-
+    this.adminId = 1;
   }
 
 
   ngOnInit() {
-    //this.getRequests();
+    this.getRequests();
   }
 
   getRequests() {
-    // get production data
+    this.source = new LocalDataSource();
+
     this.RequestListService.getRequests(this.adminId)
       .subscribe(
-        requestsData => this.data = requestsData,
+        requestsData => this.response = requestsData,
         error => { this.errorMessage = <any>error; },
         () => this.onGetRequestListSuccess()
       );
@@ -58,7 +64,8 @@ export class RequestListViewComponent implements OnInit {
 
 
   onGetRequestListSuccess() {
-    console.log(this.data);
+    this.source.load(this.response);
+    console.log(this.response);
   }
 
 }

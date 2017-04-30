@@ -2,5 +2,13 @@
 
     <h2>Admin 1 Requests</h2>
 
-    <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    <p-dataTable [value]="response" selectionMode="single" [(selection)]="selectedRequest" dataKey="requestId" [rows]="10" [paginator]="true">
+        <p-column sortable="true" field="field.fieldName" header="Field Name"></p-column>
+        <p-column sortable="true" field="requestId" header="Request ID"></p-column>
+        <p-column sortable="true" field="createDateTime" header="Created DateTime"></p-column>
+        <p-column sortable="true" field="requestDateTime" header="Request DateTime"></p-column>
+        <p-column sortable="true" field="status" header="Status"></p-column>
+    </p-dataTable>
+    <br>
+    <button class="btn btn-primary" type="submit">View Request</button>
 </div>
