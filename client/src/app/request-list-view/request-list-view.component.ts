@@ -1,62 +1,64 @@
 import { Component, OnInit } from '@angular/core';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { RequestListService } from './request-list-service';
+
 
 @Component({
   selector: 'request-list-view',
   templateUrl: './request-list-view.component.html',
-  styleUrls: ['./request-list-view.component.css']
+  styleUrls: ['./request-list-view.component.css'],
+  providers: [RequestListService]
 })
 export class RequestListViewComponent implements OnInit {
 
-  settings = {
+  private settings = {
     columns: {
-      id: {
-        title: 'ID'
-      },
-      name: {
-        title: 'Full Name'
+      requestId: {
+        title: 'Request ID'
       },
       username: {
         title: 'User Name'
       },
-      email: {
-        title: 'Email'
+      fieldName: {
+        title: 'Field'
+      },
+      requestDateTime: {
+        title: 'Request DateTime'
+      },
+      status: {
+        title: 'Status'
       }
     },
     actions: false
 
   };
 
-  data = [
-  {
-    id: 1,
-    name: "Leanne Graham",
-    username: "Bret",
-    email: "Sincere@april.biz"
-  },
-  {
-    id: 2,
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tv"
-  },
+  private adminId: number;
+  private errorMessage;
+  private data = [];
 
-  // ... list of items
-
-  {
-    id: 11,
-    name: "Nicholas DuBuque",
-    username: "Nicholas.Stanton",
-    email: "Rey.Padberg@rosamond.biz"
-  }
-];
-  constructor() {
+  constructor(private RequestListService: RequestListService) {
 
   }
 
 
   ngOnInit() {
+    //this.getRequests();
+  }
 
+  getRequests() {
+    // get production data
+    this.RequestListService.getRequests(this.adminId)
+      .subscribe(
+        requestsData => this.data = requestsData,
+        error => { this.errorMessage = <any>error; },
+        () => this.onGetRequestListSuccess()
+      );
+  }
+
+
+  onGetRequestListSuccess() {
+    console.log(this.data);
   }
 
 }

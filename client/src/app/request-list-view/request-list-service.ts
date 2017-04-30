@@ -6,7 +6,7 @@ import { config } from 'assets/config';
 
 
 @Injectable()
-export class ProductionDataReportService {
+export class RequestListService {
     private WebApiUrl: string;
     private headers: Headers;
 
