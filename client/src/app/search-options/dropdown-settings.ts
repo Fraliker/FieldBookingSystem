@@ -78,10 +78,52 @@ export const METRICS_VALUETYPE_OPTIONS = [
         {label: 'YTD'}
 ];
 
-export const METRICS_ARITHMETICOPERTAION_OPTIONS = [
-        {label: '+'},
-        {label: '-'},
-        {label: '*'},
-        {label: '/'},
-        {label: '='}
+export const DURATION_OPTIONS = [
+        {label: '30'},
+        {label: '60'},
+        {label: '90'},
+        {label: '120'}
+];
+
+export const DURATION_CONFIG = _assignIn({}, DEFAULT_DROPDOWN_CONFIG, {
+    labelField: 'label',
+    valueField: 'label',
+    searchField: ['label']
+});
+
+
+
+export const TIME_DROPDOWN_CONFIG = _assignIn({}, DEFAULT_DROPDOWN_CONFIG, {
+    labelField: 'label',
+    valueField: 'label',
+    searchField: ['label']
+});
+
+
+export const TIME_OPTIONS = [
+  {label: '8:00 AM'},
+  {label: '8:30 AM'},
+  {label: '9:00 AM'},
+  {label: '9:30 AM'},
+  {label: '10:00 AM'},
+  {label: '10:30 AM'},
+  {label: '11:00 AM'},
+  {label: '11:30 AM'},
+  {label: '12:00 PM'},
+  {label: '12:30 PM'},
+  {label: '1:00 PM'},
+  {label: '1:30 PM'},
+  {label: '2:00 PM'},
+  {label: '2:30 PM'},
+  {label: '3:00 PM'},
+  {label: '3:30 PM'},
+  {label: '4:00 PM'},
+  {label: '4:30 PM'},
+  {label: '5:00 PM'},
+  {label: '5:30 PM'},
+  {label: '6:00 PM'},
+  {label: '6:30 PM'},
+  {label: '7:00 PM'},
+  {label: '7:30 PM'},
+  {label: '8:00 PM'}
 ];

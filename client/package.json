@@ -28,6 +28,7 @@
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
+    "lodash.assign": "^4.2.0",
     "mongoose": "^4.9.2",
     "mydatepicker": "^1.9.14",
     "ng2-select": "^1.2.0",
