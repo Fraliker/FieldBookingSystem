@@ -1,10 +1,9 @@
 import {Router, Request, Response, NextFunction} from 'express';
-import {FieldTypeService} from '../services/fieldType-service';
+var FieldTypeService = require('../services/fieldType-service');
 
 
 export class FieldTypeRouter {
   public router: Router
-  private FieldTypeService: FieldTypeService;
   
 
   /**
@@ -12,8 +11,6 @@ export class FieldTypeRouter {
    */
   constructor() {
     this.router = Router();
-    this.FieldTypeService = new FieldTypeService();
-    
     this.init();
   }
 
@@ -26,7 +23,7 @@ export class FieldTypeRouter {
   init() {
     
     this.router.get('/api/fieldType/', (req, res) => {
-        this.FieldTypeService.retrieveAllFieldTypes(res);
+        FieldTypeService.retrieveAllFieldTypes(res);
     });
   }
 

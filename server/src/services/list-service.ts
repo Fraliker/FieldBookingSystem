@@ -30,3 +30,4 @@ export class ListService {
     }
  
 }
+module.exports = new ListService();
