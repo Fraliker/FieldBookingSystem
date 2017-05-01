@@ -20,10 +20,11 @@ export class FieldService {
        // logic to retrieve available fields (mongo code)
        var query = this.FieldModel.model.find({'address.city': city, 'address.state': state});
        query.exec( (err, itemArray) => {
-           for (let fields of itemArray){
+           /*for (let fields of itemArray){
                var res;
                RequestService.retrieveFieldRequests(res,fields.fieldId)
-           };
+           };*/
+           
            response.json(itemArray);
        });
    }

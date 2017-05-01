@@ -1,7 +1,35 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-<search-options-component>
-</search-options-component>
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-6 col-sm-3">
+            <h5>Date</h5>
+            <my-date-picker [selDate]='selectedDate' [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
+
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <h5>Time</h5>
+            <ng2-selectize [config]="timeConfig" [options]="timeOptions" placeholder="Time" [(ngModel)]="time" (ngModelChange)="onValueChange($event)"></ng2-selectize>
+
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <h5>Duration</h5>
+            <ng2-selectize [config]="durationConfig" [options]="durationOptions" placeholder="How Long?" [(ngModel)]="duration" (ngModelChange)="onValueChange($event)"></ng2-selectize>
+
+
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <h5>Location</h5>
+            <a class="btn btn-success btn-select btn-select-light">
+                <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+            </a>
+        </div>
+    </div>
+    <button class="btn btn-primary" (click)="this.searchFields()" type="submit">Search Fields</button>
+
+</div>
+
 
 <div class="container">
     <div class="row">
@@ -15,7 +43,7 @@
             </a>
              </button>
 
-            <button type="button" class="btn btn-default btn-sm">         
+            <button type="button" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-map-marker"></span>
             </button>
         </div>
@@ -24,6 +52,53 @@
     <div class="row">
         <side-nav-filters-component></side-nav-filters-component>
         <div class="col-lg-10">
+            <div class="row" *ngFor="let field of this.fields">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <img src="{{this.field.imageFileURL}}" class="img-responsive img-box img-thumbnail">
+                </div>
+                <div class="">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="row-content">
+                                <p style="font-size: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 500px;">{{this.field.fieldName}}</p>
+
+                                <small style="font-size: 20px; font-weight: bold;">${{this.field.fieldHourlyPrice}} (per hour)</small><br>
+                                <small>
+                                        <i class="glyphicon glyphicon-star"></i>
+                                        <i class="glyphicon glyphicon-star"></i>
+                                        <i class="glyphicon glyphicon-star"></i>
+                                        <i class="glyphicon glyphicon-star"></i>
+                                        <i class="glyphicon glyphicon-star"></i>
+                                        <span> (36 reviews)</span>
+                                        <br>
+                                        <span class="explore"><i class="glyphicon glyphicon-map-marker"></i> <a href="#">{{this.field.address.number}}, {{this.field.address.city}}, {{this.field.address.state}} {{this.field.address.zip}}</a></span>
+                                </small>
+
+                            </div>
+
+                        </div>
+                        <br>
+                        <br>
+                        <div class="list-group-item">
+                            <ul id="menu">
+                                <li><button type="button" class="btn btn-danger">08:00AM</button></li>
+                                <li><button type="button" class="btn btn-danger">08:30AM</button></li>
+                                <li><button type="button" class="btn btn-danger">09:00AM</button></li>
+                                <li><button type="button" class="btn btn-danger">09:30AM</button></li>
+                                <li><button type="button" class="btn btn-secondary" disabled>10:00AM</button></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+                <br>
+                <hr>
+            </div>
+
+
+
+            <!--
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <img src="http://www.weberstatesports.com/fls/8600/Facilities/images/soccer%20field-2.jpg" class="img-responsive img-box img-thumbnail">
@@ -228,7 +303,7 @@
 
                 </div>
             </div>
-            <hr>
+            <hr>-->
         </div>
     </div>
 </div>

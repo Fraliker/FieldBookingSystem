@@ -4,9 +4,6 @@ import { RequestListService } from './request-list-service';
 import { LocalDataSource } from 'ng2-smart-table';
 import {DataTableModule,SharedModule} from 'primeng/primeng';
 
-
-
-
 @Component({
   selector: 'request-list-view',
   templateUrl: './request-list-view.component.html',
