@@ -1,10 +1,6 @@
 import {Router, Request, Response, NextFunction} from 'express';
 import FieldModel from '../models/FieldModel';
 import RequestModel from '../models/RequestModel';
-import SportModel from '../models/SportModel';
-import FieldTypeModel from '../models/FieldTypeModel';
-import UserModel from '../models/UserModel';
-import DataAccess from '../data-access';
 
 export class RequestService {
 
@@ -39,6 +35,16 @@ export class RequestService {
         });
     }
 
+    //service
+    public retrieveUserRequests(response:any, userId: number): any {
+        // logic to retrieve available Requests (mongo code)
+        var query = this.RequestModel.model
+                        .find({'user.userId': userId})
+        query.exec( (err, itemArray) => {
+            response.json(itemArray) ;
+        });
+    }
+
 
     public addRequest(jsonObj): any {
         // logic to retrieve available Requests (mongo code)
@@ -60,3 +66,4 @@ export class RequestService {
 
     }
 }
+module.exports = new RequestService();

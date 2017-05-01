@@ -20,3 +20,4 @@ export class SportService {
         });
     }
 }
+module.exports = new SportService();

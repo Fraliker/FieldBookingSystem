@@ -20,3 +20,5 @@ export class FieldTypeService {
         });
     }
 }
+
+module.exports = new FieldTypeService();

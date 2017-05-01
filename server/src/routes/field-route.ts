@@ -1,11 +1,9 @@
 import {Router, Request, Response, NextFunction} from 'express';
-import {FieldService} from '../services/field-service';
 import * as url from 'url';
-
+var FieldService = require('../services/field-service');
 
 export class FieldRouter {
   public router: Router
-  private FieldService: FieldService;
   
 
   /**
@@ -13,8 +11,6 @@ export class FieldRouter {
    */
   constructor() {
     this.router = Router();
-    this.FieldService = new FieldService();
-    
     this.init();
   }
 
@@ -36,7 +32,7 @@ export class FieldRouter {
         var duration = query.duration; 
 
         var msg = 'search for ' + query.var1;
-        this.FieldService.retrieveAvailableFields(res, date, time, location, duration);
+        FieldService.retrieveAvailableFields(res, date, time, location, duration);
 
         return res;
     });
@@ -44,16 +40,14 @@ export class FieldRouter {
     // posting new fields
     this.router.post('/api/fields/', (req, res) => {  
         var jsonObj = req.body;
-        var id = this.FieldService.addNewField(jsonObj);
+        var id = FieldService.addNewField(jsonObj);
     });
 
     // editing fields
     this.router.put('/api/fields/', (req, res) => {  
         var jsonObj = req.body;
-        var id = this.FieldService.updateField(jsonObj);
-    });
-    
-    
+        var id = FieldService.updateField(jsonObj);
+    });  
   }
 
 }

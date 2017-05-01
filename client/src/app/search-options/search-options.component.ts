@@ -4,6 +4,7 @@ import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from 'angular2-google-maps/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import * as selectizeSettings from "./dropdown-settings";
+import * as _ from 'lodash';
 
 
 declare var google: any;
@@ -19,9 +20,15 @@ export class SearchOptionsComponent implements OnInit {
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
-  public timeOptions: String[] = [];
 
-  public timeConfig: any = selectizeSettings.config_time;
+  private timeConfig: any = selectizeSettings.TIME_DROPDOWN_CONFIG;
+  private timeOptions: any = _.cloneDeep(selectizeSettings.TIME_OPTIONS);
+
+  private durationConfig: any = selectizeSettings.DURATION_CONFIG;
+  private durationOptions: any = _.cloneDeep(selectizeSettings.DURATION_OPTIONS);
+
+
+  private time: string;
   private selectedDate;
   private myDatePickerOptions = {
       sunHighlight: false,
@@ -39,8 +46,6 @@ export class SearchOptionsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.timeOptions = ["8:00 AM","8:30 AM","9:00 AM","9:30 AM","10:00 AM","10:30 AM","11:00 AM","11:30 AM","12:00 PM","12:30 PM","1:00 PM","1:30 PM","2:00 PM",
-                        "2:30 PM","3:00 PM","3:30 PM","4:00 PM","4:30 PM","5:00 PM","5:30 PM","6:00 PM","6:30 PM","7:00 PM","7:30 PM","8:00 PM"];
 
     this.selectedDate = this.getFormattedDate(this.date);
 
@@ -103,6 +108,10 @@ export class SearchOptionsComponent implements OnInit {
     let day = date.getDate().toString();
     day = day.length > 1 ? day : '0' + day;
     return month + '-' + day + '-' + year;
+  }
+
+  onValueChange($event) {
+    console.log("Option changed: ", $event);
   }
 
 

@@ -1,19 +1,15 @@
 import {Router, Request, Response, NextFunction} from 'express';
-import {SportService} from '../services/sport-service';
-
+var SportService = require('../services/sport-service');
 
 export class SportRouter {
   public router: Router
-  private SportService: SportService;
   
 
   /**
    * Initialize the SportRouter
    */
   constructor() {
-    this.router = Router();
-    this.SportService = new SportService();
-    
+    this.router = Router();    
     this.init();
   }
 
@@ -25,7 +21,7 @@ export class SportRouter {
    */
   init() {
     this.router.get('/api/sport/', (req, res) => {
-        this.SportService.retrieveAllSports(res);
+        SportService.retrieveAllSports(res);
     });
   }
 

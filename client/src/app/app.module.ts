@@ -6,17 +6,14 @@ import { AppRoutingModule, routableComponents } from './app-routing.module';
 import {Ng2SelectizeModule} from 'ng2-selectize';
 
 import { AppComponent } from './app.component';
-import { FieldListViewComponent } from './field-list-view/field-list-view.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchOptionsComponent } from './search-options/search-options.component';
 import { SideNavFiltersComponent } from './side-nav-filters/side-nav-filters.component';
 import { AgmCoreModule } from "angular2-google-maps/core";
 import {} from '@types/googlemaps';
 import { MyDatePickerModule } from 'mydatepicker';
-import { RequestListViewComponent } from './request-list-view/request-list-view.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import {DataTableModule,SharedModule} from 'primeng/primeng';
-
 
 
 @NgModule({

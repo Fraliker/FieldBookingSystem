@@ -1,17 +1,14 @@
 import {Router, Request, Response, NextFunction} from 'express';
-import {TaskService} from '../services/task-service';
-
+var TaskService = require('../services/task-service');
 
 export class TaskRouter {
   public router: Router
-  private TaskService: TaskService;
 
   /**
    * Initialize the TaskRouter
    */
   constructor() {
     this.router = Router();
-    this.TaskService = new TaskService();
     this.init();
   }
 
@@ -25,20 +22,20 @@ export class TaskRouter {
     this.router.get('/app/list/:listId/count', (req, res) => {
         var id = req.params.listId;
         console.log('Query single list with id: ' + id);
-        this.TaskService.retrieveTasksCount(res, {listId: id});
+        TaskService.retrieveTasksCount(res, {listId: id});
     });
 
 
     this.router.get('/app/list/:listId/count', (req, res) => {
         var id = req.params.listId;
         console.log('Query single list with id: ' + id);
-        this.TaskService.retrieveTasksCount(res, {listId: id});
+        TaskService.retrieveTasksCount(res, {listId: id});
     });
 
     this.router.get('/app/list/:listId', (req, res) => {
         var id = req.params.listId;
         console.log('Query single list with id: ' + id);
-        this.TaskService.retrieveTasksDetails(res, {listId: id});
+        TaskService.retrieveTasksDetails(res, {listId: id});
     });
   }
 

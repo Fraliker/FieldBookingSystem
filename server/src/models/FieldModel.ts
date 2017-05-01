@@ -15,30 +15,35 @@ export default class FieldModel {
     }
 
     public createSchema(): void {
-        this.schema =  mongoose.Schema(
-            {
-                fieldId: Number,
-                admin: {
-                    adminUserName: String,
-                    adminId: Number,
-                    organization: String,
-                    phoneNo: String
-                },
-                fieldName: String,
-                fieldHourlyPrice: Number,
-                description: String,
-                imageFileURL: String,
-                address: String,
-                sport: [ {
-                    sportName: String,
-                    sportId: Number,
-                }],
-                fieldType: [ {
-                    fieldTypeName: String,
-                    fieldTypeId: Number,
-                }],
-            }, {collection: 'fields'}
-        );
+       this.schema =  mongoose.Schema(
+           {
+               fieldId: Number,
+               admin: {
+                   adminUserName: String,
+                   adminId: Number,
+                   organization: String,
+                   phoneNo: String
+               },
+               fieldName: String,
+               fieldHourlyPrice: Number,
+               description: String,
+               imageFileURL: String,
+               address: {
+                   number: String,
+                   city: String,
+                   state: String,
+                   zip: String,
+               },
+               sport: [ {
+                   sportName: String,
+                   sportId: Number,
+               }],
+               fieldType: [ {
+                   fieldTypeName: String,
+                   fieldTypeId: Number,
+               }],
+           }, {collection: 'fields'}
+       );
     }
 
     public createModel(): void {

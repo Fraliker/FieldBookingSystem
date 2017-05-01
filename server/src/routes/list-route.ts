@@ -1,19 +1,16 @@
 import {Router, Request, Response, NextFunction} from 'express';
-import {ListService} from '../services/list-service';
+var ListService = require('../services/fieldType-service');
 
 
 export class ListRouter {
   public router: Router
-  private ListService: ListService;
   
 
   /**
    * Initialize the ListRouter
    */
   constructor() {
-    this.router = Router();
-    this.ListService = new ListService();
-    
+    this.router = Router();    
     this.init();
   }
 
@@ -25,13 +22,13 @@ export class ListRouter {
    */
   init() {
     this.router.get('/app/list/', (req, res) => {
-        this.ListService.retrieveAllLists(res);
+        ListService.retrieveAllLists(res);
     });
 
     this.router.post('/app/list/', (req, res) => {
         console.log(req.body);
         var jsonObj = req.body;
-        var id = this.ListService.createList(jsonObj);        
+        var id = ListService.createList(jsonObj);        
         res.send(id.toString());
     });
     

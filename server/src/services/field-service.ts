@@ -2,6 +2,7 @@ import {Router, Request, Response, NextFunction} from 'express';
 import FieldModel from '../models/FieldModel';
 import DataAccess from '../data-access';
 
+
 export class FieldService {
 
     private FieldModel: FieldModel;
@@ -36,3 +37,6 @@ export class FieldService {
         });
     }
 }
+
+module.exports = new FieldService();
+
