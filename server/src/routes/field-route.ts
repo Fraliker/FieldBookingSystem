@@ -28,12 +28,12 @@ export class FieldRouter {
         
         var date = query.date;
         var time = query.time;
-        var location = query.location;
+        var city = query.city;
+        var state = query.state;
         var duration = query.duration; 
 
         var msg = 'search for ' + query.var1;
-        FieldService.retrieveAvailableFields(res, date, time, location, duration);
-
+        FieldService.retrieveAvailableFields(res, date, time, city, state, duration);
         return res;
     });
 
