@@ -2,6 +2,7 @@ import {Router, Request, Response, NextFunction} from 'express';
 import FieldModel from '../models/FieldModel';
 import RequestModel from '../models/RequestModel';
 
+
 export class RequestService {
 
     private RequestModel: RequestModel;
@@ -28,6 +29,15 @@ export class RequestService {
         });
     }
 
+
+    private getMaxId() :any {
+        var query = this.RequestModel.model.find().sort({requestId:-1}).limit(1);     
+        query.exec( function(err, itemArray) {
+            console.log(itemArray.requestId);
+            return itemArray.requestId;
+        });
+    }
+
     public retrieveRequestDetails(response: any, filter:Object) {
         var query = this.RequestModel.model.findOne(filter);
         query.exec( (err, itemArray) => {
@@ -48,9 +58,10 @@ export class RequestService {
 
     public addRequest(jsonObj): any {
         // logic to retrieve available Requests (mongo code)
-        var query = this.RequestModel.model.find({});
-        query.exec( (err, itemArray) => {
-            
+        this.RequestModel.model.create([jsonObj], (err) => {
+            if (err) {
+                console.log('object creation failed');
+            }
         });
     }
 

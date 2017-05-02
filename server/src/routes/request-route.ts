@@ -24,12 +24,6 @@ export class RequestRouter {
    */
   init() {
     
-    // getting all requests
-    this.router.get('/api/request', (req, res) => {
-        RequestService.retrieveAllRequests(res);
-        return res;
-    });
-
     // getting all requests for admin
     this.router.get('/api/request/:adminId', (req, res) => {
         var adminId = req.params.adminId;
@@ -37,7 +31,7 @@ export class RequestRouter {
         return res;
     });
 
-    // getting user request
+    // getting all requests for user
     this.router.get('/api/request/user/:userId', (req, res) => {
         var userId = req.params.userId;
         RequestService.retrieveUserRequests(res, userId);
@@ -51,10 +45,19 @@ export class RequestRouter {
         return res;
     });
 
+    // getting all requests for one field
+    this.router.get('/api/request/:fieldId', (req, res) => {
+        var fieldId = req.params.fieldId;
+        RequestService.retrieveRequests(res, fieldId);
+        return res;
+    });
+
     // adding a new field request
     this.router.post('/api/request/:userId', (req, res) => {  
+        var userId = req.params.userId;
         var jsonObj = req.body;
         var id = RequestService.addRequest(jsonObj);
+        return res;
     });
 
     // updating an existing field request
@@ -64,12 +67,7 @@ export class RequestRouter {
         var id = RequestService.addRequest(jsonObj);
     });
 
-   // getting all requests for one field
-   this.router.get('/api/request/:fieldId', (req, res) => {
-       var fieldId = req.params.fieldId;
-       RequestService.retrieveRequests(res, fieldId);
-       return res;
-   });
+
   }
 
 }

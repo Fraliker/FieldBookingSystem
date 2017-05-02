@@ -344,3 +344,93 @@ requestsCollection.insert({
     requestDateTime: new Date(2016, 3, 28, 20, 30, 0, 0),
     createDateTime: new Date(2016, 3, 18, 20, 30, 0, 0)
 });
+
+
+requestsCollection.insert({
+    requestId: 3,
+    field: {
+        fieldId: 2,
+        admin: {
+            adminUserName: "admin1",
+            adminId: 1,
+            organization: "organization1",
+            phoneNumber: 2066189002
+        },
+        fieldName: "Magnuson Park Mickey Merriam (Magnuson Meadow) #2",
+        fieldHourlyPrice: 200,
+        description: "At Warren G. Magnuson Park, you'll find more than four miles of walking trails along the shores of Lake Washington, grassy fields, evergreen and deciduous trees and brush, and captivating public art installations. The park's historic district features more than 20 brick and metal structures built in the 1930s and 1940s. Formerly a military base, Magnuson Park has many landmarks and historical sites that prominently display Art Deco style architecture. Magnuson also has a huge variety of amenities and features such as sports fields, community garden, wetland habitat, trails, boat launch, community center, swimming beach, and more!",
+        imageFileURL: "https://www.seattle.gov/images/Departments/ParksAndRecreation/Parks/GHI/Hiawatha3.jpg",
+        address: {
+            number: "7400 Sand Point Way NE",
+            city: "Seattle",
+            state: "WA",
+            zip: "98115"
+        },
+        sport: [{
+            sportName: "Soccer",
+            sportId: 1
+        }],
+        fieldType: [{
+            fieldTypeName: "Grass",
+            fieldTypeId: 1
+        }]
+    },
+    user: {
+        userName: "user2",
+        userId: 2,
+        firstName: "James",
+        lastName: "Barracca",
+        phoneNo: "206-618-9002"
+    },
+    duration: 200,
+    purpose: "playing soccer with friends",
+    totalPrice: 300,
+    status: "complete",
+    requestDateTime: new Date(2015, 3, 18, 13, 30, 0, 0),
+    createDateTime: new Date(2015, 3, 10, 16, 30, 0, 0)
+});
+
+
+requestsCollection.insert({
+    requestId: 4,
+    field: {
+        fieldId: 2,
+        admin: {
+            adminUserName: "admin1",
+            adminId: 1,
+            organization: "organization1",
+            phoneNumber: 2066189002
+        },
+        fieldName: "Bayview Playground Soccer Field",
+        fieldHourlyPrice: 100,
+        description: "Bayview Playground features a grass baseball field, basketball hoops, a children's play area, and restrooms.",
+        imageFileURL: "http://www.yearofseattleparks.com/wp-content/uploads/2014/01/IMG_1722.jpg",
+        address: {
+            number: "2614 24th Ave. W",
+            city: "Seattle",
+            state: "WA",
+            zip: "98199"
+        },
+        sport: [{
+            sportName: "Soccer",
+            sportId: 1
+        }],
+        fieldType: [{
+            fieldTypeName: "Grass",
+            fieldTypeId: 1
+        }]
+    },
+    user: {
+        userName: "user1",
+        userId: 1,
+        firstName: "Hesham",
+        lastName: "Alsaeedi",
+        phoneNo: "206-618-9002"
+    },
+    duration: 60,
+    purpose: "playing soccer with friends",
+    totalPrice: 200,
+    status: "rejected",
+    requestDateTime: new Date(2017, 3, 19, 17, 30, 0, 0),
+    createDateTime: new Date(2017, 3, 18, 16, 30, 0, 0)
+});

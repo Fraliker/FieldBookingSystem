@@ -3,10 +3,6 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 
-import HeroRouter from './routes/hero-route';
-import ListRouter from './routes/list-route';
-import TaskRouter from './routes/task-route';
-
 import RequestRouter from './routes/request-route';
 import FieldRouter from './routes/field-route';
 import FieldTypeRouter from './routes/field-type-route';
@@ -37,14 +33,13 @@ class App {
     this.express.use(logger('dev'));
     this.express.use(bodyParser.json());
     this.express.use(bodyParser.urlencoded({ extended: false }));
+    this.express.use('/', express.static(__dirname+'/pages'));
+
+
   }
 
   // Configure API endpoints.
   private routes(): void {
-    
-    this.express.use(HeroRouter);
-    this.express.use(ListRouter);
-    this.express.use(TaskRouter);
     
     this.express.use(RequestRouter);
     this.express.use(FieldRouter);

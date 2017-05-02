@@ -22,6 +22,7 @@ export class FieldRouter {
   init() {
     
     // getting available fields
+    // query parameters: date, time, city, state, duration
     this.router.get('/api/fields/', (req, res) => {
         var urlParts = url.parse(req.url, true);
         var query = urlParts.query;
@@ -44,7 +45,7 @@ export class FieldRouter {
     });
 
     // editing fields
-    this.router.put('/api/fields/', (req, res) => {  
+    this.router.put('/api/fields/:fieldId', (req, res) => {  
         var jsonObj = req.body;
         var id = FieldService.updateField(jsonObj);
     });  
