@@ -15,10 +15,25 @@ export class FieldListViewService {
 
     }
 
-    getAvailableFields(date: Date, time: string, duration: number, city: string, state: string) {  
+    /*getAvailableFields(date: Date, time: string, duration: number, city: string, state: string) {  
       return this.http.get(this.WebApiUrl + '/' + '?date=' + date + '&time=' + time + '&duration=' + duration + '&city=' + city + '&state=' + state)
                       .map((response: Response) => response.json())
                       .catch(this.handleError);
+    }*/
+
+
+    getAvailableFields(date: Date, time: string, duration: number, city: string, state: string) {
+      return Observable.create(observer => {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", this.WebApiUrl + '/' + '?date=' + date + '&time=' + time + '&duration=' + duration + '&city=' + city + '&state=' + state, true);
+
+        xmlhttp.onreadystatechange = function() {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            observer.next(JSON.parse(xmlhttp.response))
+          }
+        }
+        xmlhttp.send();
+      });
     }
 
     private handleError(error: Response) {

@@ -91,15 +91,8 @@ export class FieldListViewComponent implements OnInit {
   }
 
   private searchFields() {
-    console.log(this.time);
-    console.log(this.date);
-    console.log(this.duration);
-    console.log(this.location[0].short_name);
-    console.log(this.location[2].short_name);
-    this.FieldListViewService.getAvailableFields(this.date, this.time, this.duration, this.location[0].short_name, this.location[2].short_name);
-
     this.FieldListViewService.getAvailableFields(this.date, this.time, this.duration,
-                                                this.location[0].short_name, this.location[2].short_name)
+                                    this.location[0].short_name, this.location[2].short_name)
       .subscribe(
         response => this.fields = response,
         error => { this.errorMessage = <any>error; },
