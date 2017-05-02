@@ -25,7 +25,7 @@ export class RequestRouter {
   init() {
     
     // getting all requests for admin
-    this.router.get('/api/request/:adminId', (req, res) => {
+    this.router.get('/api/request/admin/:adminId', (req, res) => {
         var adminId = req.params.adminId;
         RequestService.retrieveRequests(res, adminId);
         return res;
@@ -46,7 +46,7 @@ export class RequestRouter {
     });
 
     // getting all requests for one field
-    this.router.get('/api/request/:fieldId', (req, res) => {
+    this.router.get('/api/request/field/:fieldId', (req, res) => {
         var fieldId = req.params.fieldId;
         RequestService.retrieveRequests(res, fieldId);
         return res;

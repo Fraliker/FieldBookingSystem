@@ -16,7 +16,7 @@ export class RequestListService {
     }
 
     getRequests(adminId) {  
-      return this.http.get(this.WebApiUrl + '/' + adminId)
+      return this.http.get(this.WebApiUrl + '/admin/' + adminId)
                       .map((response: Response) => response.json())
                       .catch(this.handleError);
     }
