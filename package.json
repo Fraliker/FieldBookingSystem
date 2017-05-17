@@ -1,0 +1,42 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "FieldBookingSystem",
+  "main": "server.js",
+  "scripts": {
+    "start": "gulp scripts assets && node dist/server.js",
+    "test": "mocha --reporter spec --compilers ts:ts-node/register test/**/*.test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hisham02/FieldBookingSystem/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/debug": "0.0.29",
+    "@types/express": "^4.0.35",
+    "@types/node": "^6.0.69",
+    "body-parser": "^1.17.1",
+    "debug": "^2.6.3",
+    "express": "^4.15.2",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-typescript": "^3.1.6",
+    "mongoose": "^4.9.6",
+    "morgan": "^1.8.1",
+    "typescript": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.16.3",
+    "@types/chai": "^3.5.0",
+    "@types/chai-http": "0.0.30",
+    "@types/mocha": "^2.2.41",
+    "@types/morgan": "^1.7.32",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.2.0",
+    "ts-node": "^3.0.2"
+  }
+}
