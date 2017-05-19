@@ -14,6 +14,7 @@ import {} from '@types/googlemaps';
 import { MyDatePickerModule } from 'mydatepicker';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import {DataTableModule,SharedModule} from 'primeng/primeng';
+import { UserRequestListViewComponent } from './user-request-list-view/user-request-list-view.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {DataTableModule,SharedModule} from 'primeng/primeng';
     routableComponents,
     HeaderComponent,
     SearchOptionsComponent,
-    SideNavFiltersComponent
+    SideNavFiltersComponent,
+    UserRequestListViewComponent
   ],
   imports: [
     BrowserModule,
