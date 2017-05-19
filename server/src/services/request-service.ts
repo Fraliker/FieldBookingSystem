@@ -7,10 +7,10 @@ export class RequestService {
 
     private RequestModel: RequestModel;
     public idGenerator:number;
-    
+
     public constructor() {
         this.RequestModel = new RequestModel();
-        this.idGenerator = 100;
+        this.idGenerator = 0;
     }
 
     public retrieveRequests(response:any, adminId: number): any {
@@ -29,12 +29,15 @@ export class RequestService {
         });
     }
 
+    private save(id) {
+        this.idGenerator = id;
+        console.log(this.idGenerator);
+    }
 
     private getMaxId() :any {
         var query = this.RequestModel.model.find().sort({requestId:-1}).limit(1);     
-        query.exec( function(err, itemArray) {
-            console.log(itemArray.requestId);
-            return itemArray.requestId;
+        query.exec(function(err, itemArray){
+            this.save(<number>itemArray[0]._doc.requestId);
         });
     }
 
@@ -57,13 +60,18 @@ export class RequestService {
 
 
     public addRequest(jsonObj): any {
+
+        this.getMaxId();
+
+        /*
         // logic to retrieve available Requests (mongo code)
         this.RequestModel.model.create([jsonObj], (err) => {
             if (err) {
                 console.log('object creation failed');
             }
-        });
+        });*/
     }
+   
 
     public updateRequest(jsonObj): any {
         // logic to retrieve available Requests (mongo code)

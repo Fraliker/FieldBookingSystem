@@ -7,13 +7,15 @@ var RequestService = require('../services/request-service');
 
 export class RequestRouter {
   public router: Router
+  private idGenerator: number;
   
 
   /**
    * Initialize the ListRouter
    */
   constructor() {
-    this.router = Router();    
+    this.router = Router();
+    this.idGenerator = 100;
     this.init();
   }
 
@@ -56,9 +58,14 @@ export class RequestRouter {
     this.router.post('/api/request/:userId', (req, res) => {  
         var userId = req.params.userId;
         var jsonObj = req.body;
+        //jsonObj.requestId = this.idGenerator;
+        //this.idGenerator++;
         var id = RequestService.addRequest(jsonObj);
+        res.send(200);
         return res;
     });
+
+    
 
     // updating an existing field request
     this.router.put('/api/request/:requestId', (req, res) => {  
