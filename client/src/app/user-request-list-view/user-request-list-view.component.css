@@ -1,0 +1,4 @@
+tbody>tr>td:first-child {
+    text-align: left;
+    background-color: red;
+}
