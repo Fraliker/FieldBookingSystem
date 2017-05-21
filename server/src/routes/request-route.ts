@@ -58,11 +58,11 @@ export class RequestRouter {
     this.router.post('/api/request/:userId', (req, res) => {  
         var userId = req.params.userId;
         var jsonObj = req.body;
-        //jsonObj.requestId = this.idGenerator;
+        //var maxId = RequestService.getMaxId(jsonObj);
+        //jsonObj.requestId = maxId++
         //this.idGenerator++;
-        var id = RequestService.addRequest(jsonObj);
-        res.send(200);
-        return res;
+        RequestService.addRequest(jsonObj);
+        res.sendStatus(200);
     });
 
     

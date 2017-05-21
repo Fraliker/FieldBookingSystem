@@ -303,7 +303,7 @@ requestsCollection.insert({
     totalPrice: 200,
     status: "pending",
     requestDateTime: new Date(2016, 4, 05, 20, 30, 0, 0),
-    createDateTime: new Date(2016, 3, 18, 20, 30, 0, 0)
+    createdDateTime: new Date(2016, 3, 18, 20, 30, 0, 0)
 });
 
 requestsCollection.insert({
@@ -342,7 +342,7 @@ requestsCollection.insert({
     totalPrice: 200,
     status: "complete",
     requestDateTime: new Date(2016, 3, 28, 20, 30, 0, 0),
-    createDateTime: new Date(2016, 3, 18, 20, 30, 0, 0)
+    createdDateTime: new Date(2016, 3, 18, 20, 30, 0, 0)
 });
 
 
@@ -387,7 +387,7 @@ requestsCollection.insert({
     totalPrice: 300,
     status: "complete",
     requestDateTime: new Date(2015, 3, 18, 13, 30, 0, 0),
-    createDateTime: new Date(2015, 3, 10, 16, 30, 0, 0)
+    createdDateTime: new Date(2015, 3, 10, 16, 30, 0, 0)
 });
 
 
@@ -432,5 +432,5 @@ requestsCollection.insert({
     totalPrice: 200,
     status: "rejected",
     requestDateTime: new Date(2017, 3, 19, 17, 30, 0, 0),
-    createDateTime: new Date(2017, 3, 18, 16, 30, 0, 0)
+    createdDateTime: new Date(2017, 3, 18, 16, 30, 0, 0)
 });

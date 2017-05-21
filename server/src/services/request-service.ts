@@ -37,7 +37,7 @@ export class RequestService {
     private getMaxId() :any {
         var query = this.RequestModel.model.find().sort({requestId:-1}).limit(1);     
         query.exec(function(err, itemArray){
-            this.save(<number>itemArray[0]._doc.requestId);
+            return <number>itemArray[0]._doc.requestId;
         });
     }
 
@@ -48,7 +48,6 @@ export class RequestService {
         });
     }
 
-    //service
     public retrieveUserRequests(response:any, userId: number): any {
         // logic to retrieve available Requests (mongo code)
         var query = this.RequestModel.model
@@ -61,23 +60,27 @@ export class RequestService {
 
     public addRequest(jsonObj): any {
 
-        this.getMaxId();
-
-        /*
-        // logic to retrieve available Requests (mongo code)
-        this.RequestModel.model.create([jsonObj], (err) => {
-            if (err) {
-                console.log('object creation failed');
+        var query = this.RequestModel.model.find().sort({requestId:-1}).limit(1);
+        query.exec(function(err, itemArray) {
+            if (err || !itemArray.length) {
+                console.log('there was a problem');
             }
-        });*/
+        }).then(item => {
+            jsonObj.requestId = <number>item[0]._doc.requestId + 1;
+            jsonObj.createdDateTime = new Date().toISOString();
+            this.RequestModel.model.create([jsonObj], (err) => {
+                console.log(jsonObj);
+                if (err) {
+                    console.log('object creation failed');
+                }
+            })
+        });
     }
-   
 
     public updateRequest(jsonObj): any {
         // logic to retrieve available Requests (mongo code)
         var query = this.RequestModel.model.find({});
         query.exec( (err, itemArray) => {
-            
         });
     }
 
