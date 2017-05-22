@@ -48,6 +48,7 @@ describe('Test requests result', function () {
 		expect(response.body).to.satisfy(
 			function (body) {
 				for (var i = 0; i < body.length; i++) {
+					expect(body[i]).to.have.property('field').to.have.property('admin').to.have.property('adminId').that.equals(1);
 					expect(body[i]).to.have.property('requestId').that.is.a('number');
 					expect(body[i]).to.have.property('field');
 					expect(body[i]).to.have.property('user');
