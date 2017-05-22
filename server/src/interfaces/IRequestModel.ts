@@ -8,6 +8,7 @@ interface IRequestModel extends Mongoose.Document {
         firstName: string;
         lastName: string;
         phoneNo: string;
+        userEmail: string;
     };
     field: {
         fieldId: number;
@@ -21,7 +22,12 @@ interface IRequestModel extends Mongoose.Document {
         fieldHourlyPrice: number;
         description: string;
         imageFileURL: string;
-        address: string;
+        address: {
+            number: string
+            city: string
+            state: string
+            zip: string
+        };
         sport: [ {
             sportName: string;
             sportId: number;

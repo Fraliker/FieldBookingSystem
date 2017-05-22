@@ -5,41 +5,58 @@ import { MapsAPILoader } from 'angular2-google-maps/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import * as selectizeSettings from "./dropdown-settings";
 import * as _ from 'lodash';
-import {FieldListViewService} from "./field-list-view-service"
+import {FieldListViewService} from "./field-list-view-service";
+import {CreateRequestComponent} from "../create-request/create-request.component"
 
 declare var google: any;
 @Component({
   selector: 'app-field-list-view',
   templateUrl: './field-list-view.component.html',
   styleUrls: ['./field-list-view.component.css'],
-  providers: [FieldListViewService]
+  providers: [FieldListViewService, CreateRequestComponent]
 })
 export class FieldListViewComponent implements OnInit {
   public latitude: number;
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
-
   private timeConfig: any = selectizeSettings.TIME_DROPDOWN_CONFIG;
   private timeOptions: any = _.cloneDeep(selectizeSettings.TIME_OPTIONS);
-
   private durationConfig: any = selectizeSettings.DURATION_CONFIG;
   private durationOptions: any = _.cloneDeep(selectizeSettings.DURATION_OPTIONS);
-
-
+  private request: boolean = false;
   private time: string;
   private selectedDate;
   private duration: number;
   private location;
+  private fields;
+  private selectedField;
+  private errorMessage;
+  private date: Date = new Date();
   private myDatePickerOptions = {
       sunHighlight: false,
       dateFormat: 'mm-dd-yyyy',
       showClearDateBtn: false
   };
 
-  private fields;
-  private errorMessage;
-  private date: Date = new Date();
+  private userRequest = {
+    requestId: 0,
+    user: {
+        userName: "user1",
+        userId: 1,
+        firstName: "Hesham",
+        lastName: "Alsaeedi",
+        phoneNo: "206-618-9002",
+        userEmail: "hisham02@gmail.com"
+    },
+    field:{},
+    duration: null,
+    purpose: null,
+    totalPrice: null,
+    status: "pending",
+    requestDateTime: null,
+    createdDateTime: null
+  };
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -131,6 +148,24 @@ export class FieldListViewComponent implements OnInit {
 
   onValueChange($event) {
     console.log("Option changed: ", $event);
+  }
+
+  onNotify(back:boolean):void {
+    this.request = back;
+  }
+
+  createRequest(field, hours, min) {
+    // setting request properties to pass to child
+    this.date.setHours(hours);
+    this.date.setMinutes(min);
+    this.selectedField = field;
+    this.userRequest.field = field;
+    this.userRequest.duration = Number(this.duration);
+    this.userRequest.requestDateTime = this.date;
+    this.userRequest.totalPrice = (field.fieldHourlyPrice/60) * this.duration;
+
+    console.log(this.userRequest);
+    this.request = true;
   }
 
 }

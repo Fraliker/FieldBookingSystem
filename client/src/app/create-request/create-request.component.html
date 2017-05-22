@@ -1,0 +1,118 @@
+<div *ngIf="!this.submitted">
+    <div class="container">
+        <div class="row">
+            <form class="form-horizontal">
+                <fieldset>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="name">Name</label>
+                        <div class="col-md-6">
+                            <input readonly id="name" name="name" type="text" placeholder="{{request.user.firstName}} {{request.user.lastName}}" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="email">Email Address</label>
+                        <div class="col-md-6">
+                            <input readonly id="email" name="email" type="email" placeholder="{{request.user.userEmail}}" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="company">Phone</label>
+                        <div class="col-md-6">
+                            <input readonly name="company" type="tel" placeholder="{{request.user.phoneNo}}" class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="street">Address:</label>
+                        <div class="col-md-6">
+                            <input readonly id="street" name="street" type="text" placeholder="{{request.field.address.number}} {{request.field.address.city}},{{request.field.address.state}} {{request.field.address.zip}}" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="post">Field Name:</label>
+                        <div class="col-md-6">
+                            <input readonly id="post" name="post" type="text" placeholder="{{request.field.fieldName}}" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="city">Datetime:</label>
+                        <div class="col-md-6">
+                            <input readonly id="city" name="city" type="text" placeholder="{{request.requestDateTime}}" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="city">Duration:</label>
+                        <div class="col-md-6">
+                            <input readonly id="city" name="city" type="text" placeholder="{{request.duration}} min" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Price/Hour:</label>
+                        <div class="col-md-6">
+                            <input readonly type="text" placeholder="${{request.totalPrice}}" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <hr>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="city">Purpose:</label>
+                        <div class="col-md-6">
+                            <textarea id="city" value="{{request.purpose}}" type="text" placeholder="What is the purpose of your booking?" class="form-control input-md" required=""></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <button id="submit" (click)='this.goBack()' name="submit" class="btn btn-primary">Back</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button id="submit" (click)='this.createRequest()' name="submit" class="btn btn-primary">Send Request</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="this.submitted">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-6 col-sm-offset-3">
+                <br><br>
+                <h2 style="color:#0fad00">Success</h2>
+                <img src="http://osmhotels.com//assets/check-true.jpg">
+                <h3>Dear, {{request.user.firstName}} {{request.user.lastName}}</h3>
+                <p style="font-size:20px;color:#5C5C5C;">Thank you for booking a field with us. We have sent an email to {{request.user.userEmail}} with your details.</p>
+                <a routerLink="/user-request-list-view" class="btn btn-success">     My Bookings      </a>
+                <br><br>
+            </div>
+
+        </div>
+    </div>
+</div>

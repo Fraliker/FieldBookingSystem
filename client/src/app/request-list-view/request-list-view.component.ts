@@ -3,12 +3,16 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { RequestListService } from './request-list-service';
 import { LocalDataSource } from 'ng2-smart-table';
 import {DataTableModule,SharedModule} from 'primeng/primeng';
+import { DatePipe } from '@angular/common';
+
+
+
 
 @Component({
   selector: 'request-list-view',
   templateUrl: './request-list-view.component.html',
   styleUrls: ['./request-list-view.component.css'],
-  providers: [RequestListService]
+  providers: [RequestListService, DatePipe]
 })
 export class RequestListViewComponent implements OnInit {
 
@@ -21,7 +25,13 @@ export class RequestListViewComponent implements OnInit {
         title: 'Request ID'
       },
       requestDateTime: {
-        title: 'Request DateTime'
+        title: 'Request DateTime',
+         valuePrepareFunction: (date) => {
+                    var raw = new Date(date);
+
+                    var formatted = new DatePipe('en-EN').transform(raw, 'dd MMM yyyy HH:mm:ss');
+                    return formatted;
+                }
       },
       status: {
         title: 'Status'
@@ -39,7 +49,7 @@ export class RequestListViewComponent implements OnInit {
   private response;
   selectedResponse;
 
-  constructor(private RequestListService: RequestListService) {
+  constructor(private RequestListService: RequestListService, private datePipe: DatePipe) {
     this.adminId = 1;
   }
 
