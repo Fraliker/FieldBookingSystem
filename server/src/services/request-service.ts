@@ -1,6 +1,7 @@
 import {Router, Request, Response, NextFunction} from 'express';
 import FieldModel from '../models/FieldModel';
 import RequestModel from '../models/RequestModel';
+var MailerService = require('../services/mailer-service');
 
 
 export class RequestService {
@@ -61,6 +62,7 @@ export class RequestService {
                 if (err) {
                     console.log('object creation failed');
                 } else {
+                    MailerService.sendEmail(response, jsonObj);
                     response.json(jsonObj);
                 }
             })
