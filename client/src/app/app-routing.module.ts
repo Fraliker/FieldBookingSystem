@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateRequestComponent } from './create-request/create-request.component';
 
 const appRoutes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'field-list-view' },
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'field-list-view', component: FieldListViewComponent },
   { path: 'request-list-view', component: RequestListViewComponent },
   { path: 'user-request-list-view', component: UserRequestListViewComponent },
@@ -17,7 +17,7 @@ const appRoutes: Routes = [
   ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, { useHash: true })],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
