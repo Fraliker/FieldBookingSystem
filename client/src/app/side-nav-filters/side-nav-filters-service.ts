@@ -16,13 +16,13 @@ export class SideNavFiltersService {
     }
 
     getFieldTypes() {  
-      return this.http.get(this.WebApiUrl + '/sport')
+      return this.http.get(this.WebApiUrl + '/fieldType')
                       .map((response: Response) => response.json())
                       .catch(this.handleError);
     }
 
     getSports() {  
-      return this.http.get(this.WebApiUrl + '/fieldType')
+      return this.http.get(this.WebApiUrl + '/sport')
                       .map((response: Response) => response.json())
                       .catch(this.handleError);
     }

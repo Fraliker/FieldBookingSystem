@@ -58,7 +58,6 @@ export class RequestService {
             jsonObj.requestId = <number>item[0]._doc.requestId + 1;
             jsonObj.createdDateTime = new Date().toISOString();
             this.RequestModel.model.create([jsonObj], (err) => {
-                console.log(jsonObj);
                 if (err) {
                     console.log('object creation failed');
                 } else {

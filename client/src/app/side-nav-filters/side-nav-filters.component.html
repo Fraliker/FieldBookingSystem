@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<div class="col-xs-6 col-sm-2">
+<div class="col-xs-6 col-sm-2" *ngIf="this.fieldTypes.length > 0 && this.sports.length > 0">
     <div id="accordion" class="panel panel-primary behclick-panel">
         <div class="panel-heading">
             <h3 class="panel-title">Filters</h3>
@@ -14,36 +14,12 @@
             </div>
             <div id="collapse0" class="panel-collapse collapse in">
                 <ul class="list-group">
-                    <li class="list-group-item">
+                    <li class="list-group-item" *ngFor="let x of this.fieldTypes; let i = index;">
                         <div class="checkbox">
                             <label>
-										<input type="checkbox" value="">
-										Indoor
-									</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="checkbox">
-                            <label>
-										<input type="checkbox" value="">
-										Outdoor
-									</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="checkbox">
-                            <label>
-										<input type="checkbox" value="">
-										Turf
-									</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="checkbox">
-                            <label>
-										<input type="checkbox" value="">
-										Grass
-									</label>
+                            <input type="checkbox" value="" (change)="setTypeFilter($event, this.x)">
+                            {{this.x.fieldTypeName}}
+									      </label>
                         </div>
                     </li>
                 </ul>
@@ -58,44 +34,12 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
                 <ul class="list-group">
-                    <li class="list-group-item">
+                    <li class="list-group-item" *ngFor="let sport of this.sports">
                         <div class="checkbox">
                             <label>
-										<input type="checkbox" value="">
-										Soccer
-									</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="checkbox">
-                            <label>
-										<input type="checkbox" value="">
-										Basketball
-									</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="checkbox">
-                            <label>
-										<input type="checkbox" value="">
-										Baseball
-									</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="checkbox">
-                            <label>
-										<input type="checkbox" value="">
-										Football
-									</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="checkbox">
-                            <label>
-										<input type="checkbox" value="">
-										Tennis
-									</label>
+                            <input type="checkbox" value="">
+                            {{this.sport.sportName}}
+									        </label>
                         </div>
                     </li>
                 </ul>

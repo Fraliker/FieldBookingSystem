@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from 'angular2-google-maps/core';
@@ -9,6 +9,7 @@ import {FieldListViewService} from "./field-list-view-service";
 import {CreateRequestComponent} from "../create-request/create-request.component"
 
 declare var google: any;
+
 @Component({
   selector: 'app-field-list-view',
   templateUrl: './field-list-view.component.html',
@@ -29,10 +30,13 @@ export class FieldListViewComponent implements OnInit {
   private selectedDate;
   private duration: number;
   private location;
-  private fields;
+  private fields: any[] = [];
   private selectedField;
   private errorMessage;
   private date: Date = new Date();
+  private sportFilters;
+  private fieldTypeFilters;
+  private ascending = false;
   private myDatePickerOptions = {
       sunHighlight: false,
       dateFormat: 'mm-dd-yyyy',
@@ -66,6 +70,7 @@ export class FieldListViewComponent implements OnInit {
     private ngZone: NgZone,
     private FieldListViewService: FieldListViewService
   ) {}
+
 
   ngOnInit() {
 
@@ -118,7 +123,7 @@ export class FieldListViewComponent implements OnInit {
   }
 
    onGetFieldsListSuccess() {
-    console.log(this.fields);
+     console.log(this.fields);
   }
 
   private setCurrentPosition() {
@@ -154,10 +159,16 @@ export class FieldListViewComponent implements OnInit {
     this.request = back;
   }
 
+  onNotifyFilters(filters:any):void {
+    //console.log(filters);
+
+  }
+
   createRequest(field, hours, min) {
     // setting request properties to pass to child
     this.date.setHours(hours);
     this.date.setMinutes(min);
+    this.date.setSeconds(0);
     this.selectedField = field;
     this.userRequest.field = field;
     this.userRequest.duration = Number(this.duration);
@@ -166,6 +177,16 @@ export class FieldListViewComponent implements OnInit {
 
     console.log(this.userRequest);
     this.request = true;
+  }
+
+  sortByPrice() {
+    if (!this.ascending) {
+      this.fields = _.sortBy(this.fields, "fieldHourlyPrice").reverse();
+      this.ascending = true;
+    } else {
+      this.fields = _.sortBy(this.fields, "fieldHourlyPrice");
+      this.ascending = false;
+    }
   }
 
 }

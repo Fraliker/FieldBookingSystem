@@ -15,7 +15,6 @@ export class RequestRouter {
    */
   constructor() {
     this.router = Router();
-    this.idGenerator = 100;
     this.init();
   }
 

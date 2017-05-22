@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-
+<br>
 <div *ngIf="request">
-    <create-request [request]="this.userRequest" (notify)='this.onNotify($event)'> </create-request>
+    <create-request [request]="this.userRequest" (notify)='this.onNotify($event)'></create-request>
 </div>
 
 <div *ngIf="!request">
@@ -39,7 +39,7 @@
     <div class="container">
         <div class="row">
             <div class="sort-button col-xs-12 col-sm-2 col-md-2">
-                <button type="button" class="btn btn-default btn-sm">
+                <button type="button" class="btn btn-default btn-sm" (click)="this.sortByPrice()">
                 <span class="glyphicon glyphicon-sort"></span> Sort
             </button>
                 <button type="button" class="btn btn-default btn-sm active">
@@ -55,42 +55,32 @@
         </div>
         <br>
         <div class="row">
-            <side-nav-filters-component></side-nav-filters-component>
+            <side-nav-filters-component *ngIf="this.fields.length > 0" (notifyFieldTypes)='this.onNotifyFilters($event)'></side-nav-filters-component>
             <div class="col-lg-10">
                 <div class="row" *ngFor="let field of this.fields">
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <img src="{{this.field.imageFileURL}}" class="img-responsive img-box img-thumbnail">
+                    <div class="col-xs-12 col-sm-4 col-md-3">
+                        <img src="{{this.field.imageFileURL}}" class="img-responsive img-box img-thumbnail" height="260px;" width="250px;">
                     </div>
                     <div class="">
                         <div class="list-group">
                             <div class="list-group-item">
                                 <div class="row-content">
-                                    <p style="font-size: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 500px;">{{this.field.fieldName}}</p>
-
+                                    <span style="font-size: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 500px;">{{this.field.fieldName}}</span>
+                                    <br>
+                                    <span class="explore"><i class="glyphicon glyphicon-map-marker"></i> <a href="#">{{this.field.address.number}}, {{this.field.address.city}}, {{this.field.address.state}} {{this.field.address.zip}}</a></span>
+                                    <br>
                                     <small style="font-size: 20px; font-weight: bold;">${{this.field.fieldHourlyPrice}} (per hour)</small><br>
-                                    <small>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <span> (36 reviews)</span>
-                                        <br>
-                                        <span class="explore"><i class="glyphicon glyphicon-map-marker"></i> <a href="#">{{this.field.address.number}}, {{this.field.address.city}}, {{this.field.address.state}} {{this.field.address.zip}}</a></span>
-                                </small>
-
                                 </div>
 
                             </div>
                             <br>
-                            <br>
                             <div class="list-group-item">
                                 <ul id="menu">
-                                    <li><button (click)="this.createRequest(this.field, 8, 0)" type="button" class="btn btn-danger">08:00AM</button></li>
-                                    <li><button (click)="this.createRequest(this.field, 8, 30)" type="button" class="btn btn-danger">08:30AM</button></li>
-                                    <li><button (click)="this.createRequest(this.field, 9, 0)" type="button" class="btn btn-danger">09:00AM</button></li>
-                                    <li><button (click)="this.createRequest(this.field, 9, 30)" type="button" class="btn btn-danger">09:30AM</button></li>
-                                    <li><button (click)="this.createRequest(this.field, 10, 0)" type="button" class="btn btn-secondary" disabled>10:00AM</button></li>
+                                    <li><button (click)="this.createRequest(this.field, 8, 0)" type="button" class="btn btn-success">08:00AM</button></li>
+                                    <li><button (click)="this.createRequest(this.field, 8, 30)" type="button" class="btn btn-success">08:30AM</button></li>
+                                    <li><button (click)="this.createRequest(this.field, 9, 0)" type="button" class="btn btn-success">09:00AM</button></li>
+                                    <li><button (click)="this.createRequest(this.field, 9, 30)" type="button" class="btn btn-success">09:30AM</button></li>
+                                    <li><button (click)="this.createRequest(this.field, 10, 0)" type="button" class="btn btn-success">10:00AM</button></li>
                                 </ul>
                             </div>
 
@@ -100,215 +90,6 @@
                     <br>
                     <hr>
                 </div>
-
-
-
-                <!--
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <img src="http://www.weberstatesports.com/fls/8600/Facilities/images/soccer%20field-2.jpg" class="img-responsive img-box img-thumbnail">
-                </div>
-                <div class="">
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <div class="row-content">
-                                <small style="font-size: 20px">Field A</small>
-                                <small style="font-size: 20px; float: right; font-weight: bold;">$200</small><br>
-                                <small>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <span> (36 reviews)</span>
-                                        <br>
-                                        <span class="explore"><i class="glyphicon glyphicon-map-marker"></i> <a href="#">SE 22nd St, Bellevue, WA 98007</a></span>
-                                </small>
-
-                            </div>
-
-                        </div>
-                        <br>
-                        <br>
-                        <div class="list-group-item">
-                            <ul id="menu">
-                                <li><button type="button" class="btn btn-danger">08:00AM</button></li>
-                                <li><button type="button" class="btn btn-danger">08:30AM</button></li>
-                                <li><button type="button" class="btn btn-danger">09:00AM</button></li>
-                                <li><button type="button" class="btn btn-danger">09:30AM</button></li>
-                                <li><button type="button" class="btn btn-secondary" disabled>10:00AM</button></li>
-                            </ul>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <img src="https://castaway.younglife.org/Site%20Development/soccer%20field.jpg" class="img-responsive img-box img-thumbnail img-field">
-                </div>
-                <div class="">
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <div class="row-content">
-                                <small style="font-size: 20px">Field B</small>
-                                <small style="font-size: 20px; float: right; font-weight: bold;">$200</small><br>
-                                <small>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <span> (36 reviews)</span>
-                                        <br>
-                                        <span class="explore"><i class="glyphicon glyphicon-map-marker"></i> <a href="#">SE 22nd St, Bellevue, WA 98007</a></span>
-                                </small>
-
-                            </div>
-
-                        </div>
-                        <br>
-                        <br>
-                        <div class="list-group-item">
-                            <ul id="menu">
-                                <li><button type="button" class="btn btn-secondary" disabled>08:00AM</button></li>
-                                <li><button type="button" class="btn btn-secondary" disabled>08:30AM</button></li>
-                                <li><button type="button" class="btn btn-secondary" disabled>09:00AM</button></li>
-                                <li><button type="button" class="btn btn-secondary" disabled>09:30AM</button></li>
-                                <li><button type="button" class="btn btn-secondary" disabled>10:00AM</button></li>
-                            </ul>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <img src="https://s-media-cache-ak0.pinimg.com/originals/d2/df/e6/d2dfe60ac841dcd193a61c52b81da106.jpg" class="img-responsive img-box img-thumbnail img-field">
-                </div>
-                <div class="">
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <div class="row-content">
-                                <small style="font-size: 20px">Field C</small>
-                                <small style="font-size: 20px; float: right; font-weight: bold;">$200</small><br>
-                                <small>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <span> (36 reviews)</span>
-                                        <br>
-                                        <span class="explore"><i class="glyphicon glyphicon-map-marker"></i> <a href="#">SE 22nd St, Bellevue, WA 98007</a></span>
-                                </small>
-
-                            </div>
-
-                        </div>
-                        <br>
-                        <br>
-                        <div class="list-group-item">
-                            <ul id="menu">
-                                <li><button type="button" class="btn btn-danger">08:00AM</button></li>
-                                <li><button type="button" class="btn btn-danger">08:30AM</button></li>
-                                <li><button type="button" class="btn btn-danger">09:00AM</button></li>
-                                <li><button type="button" class="btn btn-danger">09:30AM</button></li>
-                                <li><button type="button" class="btn btn-danger">10:00AM</button></li>
-                            </ul>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <img src="http://www.lacrossewinternationals.com/wp-content/uploads/2010/10/ISP_new_field_1.jpg" class="img-responsive img-box img-thumbnail img-field">
-                </div>
-                <div class="">
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <div class="row-content">
-                                <small style="font-size: 20px">Field D</small>
-                                <small style="font-size: 20px; float: right; font-weight: bold;">$200</small><br>
-                                <small>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <span> (36 reviews)</span>
-                                        <br>
-                                        <span class="explore"><i class="glyphicon glyphicon-map-marker"></i> <a href="#">SE 22nd St, Bellevue, WA 98007</a></span>
-                                </small>
-
-                            </div>
-
-                        </div>
-                        <br>
-                        <br>
-                        <div class="list-group-item">
-                            <ul id="menu">
-                                <li><button type="button" class="btn btn-danger">08:00AM</button></li>
-                                <li><button type="button" class="btn btn-danger">08:30AM</button></li>
-                                <li><button type="button" class="btn btn-danger">09:00AM</button></li>
-                                <li><button type="button" class="btn btn-danger">09:30AM</button></li>
-                                <li><button type="button" class="btn btn-secondary" disabled>10:00AM</button></li>
-                            </ul>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <img src="http://www.weberstatesports.com/fls/8600/Facilities/images/soccer%20field-2.jpg" class="img-responsive img-box img-thumbnail img-field">
-                </div>
-                <div class="">
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <div class="row-content">
-                                <small style="font-size: 20px">Field E</small>
-                                <small style="font-size: 20px; float: right; font-weight: bold;">$200</small><br>
-                                <small>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <i class="glyphicon glyphicon-star"></i>
-                                        <span> (36 reviews)</span>
-                                        <br>
-                                        <span class="explore"><i class="glyphicon glyphicon-map-marker"></i> <a href="#">SE 22nd St, Bellevue, WA 98007</a></span>
-                                </small>
-
-                            </div>
-
-                        </div>
-                        <br>
-                        <br>
-                        <div class="list-group-item">
-                            <ul id="menu">
-                                <li><button type="button" class="btn btn-danger">08:00AM</button></li>
-                                <li><button type="button" class="btn btn-danger">08:30AM</button></li>
-                                <li><button type="button" class="btn btn-danger">09:00AM</button></li>
-                                <li><button type="button" class="btn btn-danger">09:30AM</button></li>
-                                <li><button type="button" class="btn btn-secondary" disabled>10:00AM</button></li>
-                            </ul>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <hr>-->
             </div>
         </div>
     </div>
