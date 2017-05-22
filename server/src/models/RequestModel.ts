@@ -26,7 +26,8 @@ export default class RequestModel {
                     userId: Number,
                     firstName: String,
                     lastName: String,
-                    phoneNo: String
+                    phoneNo: String,
+                    userEmail: String
                 },
                 field: {
                     fieldId: Number,
@@ -40,7 +41,12 @@ export default class RequestModel {
                     fieldHourlyPrice: Number,
                     description: String,
                     imageFileURL: String,
-                    address: String,
+                    address: {
+                        number: String,
+                        city: String,
+                        state: String,
+                        zip: String,
+                    },
                     sport: [ {
                         sportName: String,
                         sportId: Number,

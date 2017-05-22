@@ -2,11 +2,20 @@
 
     <h2>Admin 1 Requests</h2>
 
-    <p-dataTable [value]="response" selectionMode="single" [(selection)]="selectedRequest" dataKey="requestId" [rows]="10" [paginator]="true">
+    <p-dataTable [value]="response" selectionMode="single" [(selection)]="selectedRequest" dataKey="requestId" [rows]="50" [paginator]="true">
         <p-column sortable="true" field="field.fieldName" header="Field Name"></p-column>
+        <p-column sortable="true" field="user.userEmail" header="Email"></p-column>
         <p-column sortable="true" field="requestId" header="Request ID"></p-column>
-        <p-column sortable="true" field="createDateTime" header="Created DateTime"></p-column>
-        <p-column sortable="true" field="requestDateTime" header="Request DateTime"></p-column>
+        <p-column sortable="true" field="createdDateTime" header="Created DateTime">
+            <ng-template let-col let-car="rowData" pTemplate="body">
+                {{car[col.field] | date: 'medium' }}
+            </ng-template>
+        </p-column>
+        <p-column sortable="true" field="requestDateTime" header="Request DateTime">
+            <ng-template let-col let-car="rowData" pTemplate="body">
+                {{car[col.field] | date: 'medium' }}
+            </ng-template>
+        </p-column>
         <p-column sortable="true" field="status" header="Status"></p-column>
     </p-dataTable>
     <br>

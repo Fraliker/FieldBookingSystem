@@ -21,7 +21,8 @@ export default class UserModel {
                 userId: Number,
                 firstName: String,
                 lastName: String,
-                phoneNo: String
+                phoneNo: String,
+                userEmail: String
             }, {collection: 'users'}
         );
     }

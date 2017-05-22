@@ -5,7 +5,7 @@ import { RequestListViewComponent } from './request-list-view/request-list-view.
 import { UserRequestListViewComponent } from './user-request-list-view/user-request-list-view.component';
 import { AddNewFieldComponent } from './add-new-field/add-new-field.component';
 import { HomeComponent } from './home/home.component';
-
+import { CreateRequestComponent } from './create-request/create-request.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'field-list-view' },
@@ -26,5 +26,6 @@ export const routableComponents = [
     FieldListViewComponent,
     RequestListViewComponent,
     AddNewFieldComponent,
-    HomeComponent
+    HomeComponent,
+    CreateRequestComponent
    ];

@@ -17,7 +17,7 @@ for (i = 0; i < 3; i++) {
         adminUserName: "admin" + i,
         adminId: i,
         organization: "organization " + i,
-        phoneNumber: 2066189002
+        phoneNumber: "206-618-9002"
     });
 }
 
@@ -37,7 +37,8 @@ usersCollection.insert({
     userId: 1,
     firstName: "Hesham",
     lastName: "Alsaeedi",
-    phoneNo: "206-618-9002"
+    phoneNo: "206-618-9002",
+    userEmail: "hisham02@gmail.com"
 });
 
 usersCollection.insert({
@@ -45,7 +46,8 @@ usersCollection.insert({
     userId: 2,
     firstName: "James",
     lastName: "Barracca",
-    phoneNo: "206-618-9002"
+    phoneNo: "206-618-9002",
+    userEmail: "jamesbarracca9142@gmail.com"
 });
 
 usersCollection.insert({
@@ -53,7 +55,8 @@ usersCollection.insert({
     userId: 3,
     firstName: "Jacob",
     lastName: "Lee",
-    phoneNo: "206-618-9002"
+    phoneNo: "206-618-9002",
+    userEmail: "leej56@seattleu.edu"
 });
 
 
@@ -138,7 +141,7 @@ fieldsCollection.insert({
         adminUserName: "admin1",
         adminId: 1,
         organization: "organization1",
-        phoneNumber: 2066189002
+        phoneNumber: "206-618-9002"
     },
     fieldName: "Ballard Playground Baseball/Softball Field #1",
     fieldHourlyPrice: 60,
@@ -171,7 +174,7 @@ fieldsCollection.insert({
         adminUserName: "admin1",
         adminId: 1,
         organization: "organization1",
-        phoneNumber: 2066189002
+        phoneNumber: "206-618-9002"
     },
     fieldName: "Bobby Morris Field (at Cal Anderson Park) Soccer Field",
     fieldHourlyPrice: 80,
@@ -200,7 +203,7 @@ fieldsCollection.insert({
         adminUserName: "admin1",
         adminId: 1,
         organization: "organization1",
-        phoneNumber: 2066189002
+        phoneNumber: "206-618-9002"
     },
     fieldName: "Bayview Playground Soccer Field",
     fieldHourlyPrice: 100,
@@ -228,7 +231,7 @@ fieldsCollection.insert({
         adminUserName: "admin1",
         adminId: 1,
         organization: "organization1",
-        phoneNumber: 2066189002
+        phoneNumber: "206-618-9002"
     },
     fieldName: "Magnuson Park Mickey Merriam (Magnuson Meadow) #2",
     fieldHourlyPrice: 200,
@@ -270,7 +273,7 @@ requestsCollection.insert({
             adminUserName: "admin1",
             adminId: 1,
             organization: "organization1",
-            phoneNumber: 2066189002
+            phoneNumber: "206-618-9002"
         },
         fieldName: "Ballard Playground Baseball/Softball Field #1",
         fieldHourlyPrice: 60,
@@ -296,7 +299,8 @@ requestsCollection.insert({
         userId: 1,
         firstName: "Hesham",
         lastName: "Alsaeedi",
-        phoneNo: "206-618-9002"
+        phoneNo: "206-618-9002",
+        userEmail: "hisham02@gmail.com"
     },
     duration: 120,
     purpose: "little league baseball",
@@ -314,7 +318,7 @@ requestsCollection.insert({
             adminUserName: "admin1",
             adminId: 1,
             organization: "organization1",
-            phoneNumber: 2066189002
+            phoneNumber: "206-618-9002"
         },
         fieldName: "Bobby Morris Field (at Cal Anderson Park) Soccer Field",
         fieldHourlyPrice: 80,
@@ -335,7 +339,8 @@ requestsCollection.insert({
         userId: 2,
         firstName: "James",
         lastName: "Barracca",
-        phoneNo: "206-618-9002"
+        phoneNo: "206-618-9002",
+        userEmail: "jamesbarracca9142@gmail.com"
     },
     duration: 90,
     purpose: "playing soccer with friends",
@@ -354,7 +359,7 @@ requestsCollection.insert({
             adminUserName: "admin1",
             adminId: 1,
             organization: "organization1",
-            phoneNumber: 2066189002
+            phoneNumber: "206-618-9002"
         },
         fieldName: "Magnuson Park Mickey Merriam (Magnuson Meadow) #2",
         fieldHourlyPrice: 200,
@@ -376,11 +381,12 @@ requestsCollection.insert({
         }]
     },
     user: {
-        userName: "user2",
-        userId: 2,
-        firstName: "James",
-        lastName: "Barracca",
-        phoneNo: "206-618-9002"
+        userName: "user3",
+        userId: 3,
+        firstName: "Jacob",
+        lastName: "Lee",
+        phoneNo: "206-618-9002",
+        userEmail: "leej56@seattleu.edu"
     },
     duration: 200,
     purpose: "playing soccer with friends",
@@ -399,7 +405,7 @@ requestsCollection.insert({
             adminUserName: "admin1",
             adminId: 1,
             organization: "organization1",
-            phoneNumber: 2066189002
+            phoneNumber: "206-618-9002"
         },
         fieldName: "Bayview Playground Soccer Field",
         fieldHourlyPrice: 100,
@@ -425,7 +431,8 @@ requestsCollection.insert({
         userId: 1,
         firstName: "Hesham",
         lastName: "Alsaeedi",
-        phoneNo: "206-618-9002"
+        phoneNo: "206-618-9002",
+        userEmail: "hisham02@gmail.com"
     },
     duration: 60,
     purpose: "playing soccer with friends",
