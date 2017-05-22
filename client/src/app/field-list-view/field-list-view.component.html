@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 <br>
 <div *ngIf="request">
-    <create-request [request]="this.userRequest" (notify)='this.onNotify($event)'></create-request>
+    <h3>Confirm Booking</h3>
+    <create-request [request]="this.userRequest" [admin]="false" (notify)='this.onNotify($event)'></create-request>
 </div>
 
 <div *ngIf="!request">

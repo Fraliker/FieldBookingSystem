@@ -2,7 +2,7 @@
 
     <h2>User 1 Requests</h2>
 
-    <p-dataTable [value]="response" selectionMode="single" [(selection)]="selectedRequest" dataKey="requestId" [rows]="50" [paginator]="true">
+    <p-dataTable [value]="response" selectionMode="single" [(selection)]="selectedRequest" dataKey="requestId" [rows]="15" [paginator]="true">
         <p-column sortable="true" field="field.fieldName" header="Field Name"></p-column>
         <p-column sortable="true" field="requestId" header="Request ID"></p-column>
         <p-column sortable="true" field="createdDateTime" header="Created DateTime">

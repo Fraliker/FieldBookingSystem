@@ -573,3 +573,7 @@ Search options
 .sebm-google-map-container {
     height: 300px;
 }
+
+h3 {
+    text-align: center;
+}

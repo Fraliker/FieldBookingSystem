@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {CreateRequestService} from './create-request-service'
+import {CreateRequestService} from './create-request-service';
 
 @Component({
   selector: 'create-request',
@@ -12,6 +12,7 @@ export class CreateRequestComponent implements OnInit {
   constructor(private CreateRequestService: CreateRequestService,) { }
 
   @Input() request: any;
+  @Input() admin: boolean;
   @Output() notify: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   private errorMessage;
@@ -37,5 +38,12 @@ export class CreateRequestComponent implements OnInit {
     this.submitted = true;
   }
 
+  approve() {
+
+  }
+
+  reject() {
+
+  }
 
 }

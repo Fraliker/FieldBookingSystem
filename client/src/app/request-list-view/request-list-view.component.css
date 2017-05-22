@@ -2,3 +2,7 @@ tbody>tr>td:first-child {
     text-align: left;
     background-color: red;
 }
+
+h3 {
+    text-align: center;
+}

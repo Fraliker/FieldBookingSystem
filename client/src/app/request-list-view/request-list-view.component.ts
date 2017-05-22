@@ -42,12 +42,12 @@ export class RequestListViewComponent implements OnInit {
   };
 
   private source: LocalDataSource;
-
   private adminId: number;
   private errorMessage;
   private data = [];
   private response;
-  selectedResponse;
+  private selectedRequest;
+  private viewRequest = false;
 
   constructor(private RequestListService: RequestListService, private datePipe: DatePipe) {
     this.adminId = 1;
@@ -73,6 +73,15 @@ export class RequestListViewComponent implements OnInit {
   onGetRequestListSuccess() {
     this.source.load(this.response);
     console.log(this.response);
+  }
+
+  showRequest() {
+    console.log(this.selectedRequest);
+    this.viewRequest = true;
+  }
+
+  onNotify(back:boolean):void {
+    this.viewRequest = back;
   }
 
 }
