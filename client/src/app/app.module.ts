@@ -7,7 +7,6 @@ import {Ng2SelectizeModule} from 'ng2-selectize';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { SearchOptionsComponent } from './search-options/search-options.component';
 import { SideNavFiltersComponent } from './side-nav-filters/side-nav-filters.component';
 import { AgmCoreModule } from "angular2-google-maps/core";
 import {} from '@types/googlemaps';
@@ -22,7 +21,6 @@ import { UserRequestListViewComponent } from './user-request-list-view/user-requ
     AppComponent,
     routableComponents,
     HeaderComponent,
-    SearchOptionsComponent,
     SideNavFiltersComponent,
     UserRequestListViewComponent
   ],

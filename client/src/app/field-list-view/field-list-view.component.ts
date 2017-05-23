@@ -141,7 +141,10 @@ export class FieldListViewComponent implements OnInit {
      this.availableDates.push(tempStartDate);
 
      for (var i = 1; i < 5; i++) {
-       this.availableDates.push(new Date().setTime(tempStartDate.getTime() + (30*i * 60 * 1000)));
+       var x = new Date();
+       x.setHours(tempStartDate.getHours());
+       x.setMinutes(tempStartDate.getMinutes() + (30*i));//.setTime(tempStartDate.getTime() + (30*i * 60 * 1000));
+       this.availableDates.push(x);
      }
   }
 
@@ -183,10 +186,10 @@ export class FieldListViewComponent implements OnInit {
 
   }
 
-  createRequest(field, hours, min) {
+  createRequest(field, date) {
     // setting request properties to pass to child
-    this.date.setHours(hours);
-    this.date.setMinutes(min);
+    this.date.setHours(date.getHours());
+    this.date.setMinutes(date.getMinutes());
     this.date.setSeconds(0);
     this.selectedField = field;
     this.userRequest.field = field;

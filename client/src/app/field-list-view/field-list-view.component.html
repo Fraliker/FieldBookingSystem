@@ -76,8 +76,8 @@
                             <br>
                             <div class="list-group-item">
                                 <ul id="menu">
-                                    <li style="margin-right: 10px" *ngFor="let date of this.availableDates">
-                                        <button (click)="this.createRequest(this.field, 8, 0)" type="button" class="btn btn-success">
+                                    <li style="margin-right: 10px" *ngFor="let date of this.availableDates; let i = index;">
+                                        <button (click)="this.createRequest(this.field, date)" type="button" class="btn btn-success">
                                         {{date | date: 'shortTime'}}
                                       </button>
 
