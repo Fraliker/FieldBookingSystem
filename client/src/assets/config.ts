@@ -1,4 +1,4 @@
 export var config = {
   'title': 'API Config',
-  'WebApiBaseUrl': 'api',
+  'WebApiBaseUrl': 'http://localhost:3000/api',
 };
