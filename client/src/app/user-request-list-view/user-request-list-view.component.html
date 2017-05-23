@@ -1,4 +1,8 @@
-<div class="container">
+<div *ngIf="this.viewRequest" class="container">
+    <create-request [request]="this.selectedRequest" [admin]="false" (notify)='this.onNotify($event)'></create-request>
+</div>
+
+<div *ngIf="!this.viewRequest" class="container">
 
     <h2>User 1 Requests</h2>
 
@@ -18,5 +22,5 @@
         <p-column sortable="true" field="status" header="Status"></p-column>
     </p-dataTable>
     <br>
-    <button class="btn btn-primary" type="submit">View Request</button>
+    <button [disabled]="!this.selectedRequest" class="btn btn-primary" (click)="this.showRequest();" type="submit">View Request</button>
 </div>

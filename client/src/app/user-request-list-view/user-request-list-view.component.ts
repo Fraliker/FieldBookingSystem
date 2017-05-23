@@ -38,6 +38,8 @@ export class UserRequestListViewComponent implements OnInit {
   private errorMessage;
   private data = [];
   private response;
+  private selectedRequest;
+  private viewRequest = false;
   selectedResponse;
 
   constructor(private UserRequestListService: UserRequestListService) {
@@ -63,6 +65,15 @@ export class UserRequestListViewComponent implements OnInit {
   onGetRequestListSuccess() {
     this.source.load(this.response);
     console.log(this.response);
+  }
+
+  showRequest() {
+    console.log(this.selectedRequest);
+    this.viewRequest = true;
+  }
+
+  onNotify(back:boolean):void {
+    this.viewRequest = back;
   }
 
 }
