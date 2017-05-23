@@ -15,7 +15,7 @@ export class MailerService {
                 pass: 'startbooking' // Your password
             }
         });
-        var text = 'Hello ' + requestDetails.user.firstName + ' ' + requestDetails.user.lastName + ',\n\n' + 'Your field booking request has been submitted. You will receive an email within the next 48 hours from ' + requestDetails.field.admin.organization + ' for payment arrangements. Thank you!';
+        var text = 'Hello ' + requestDetails.user.firstName + ' ' + requestDetails.user.lastName + ',\n\n' + 'Your field booking request has been submitted with Request ID: ' + requestDetails.requestId + '. You will receive an email within the next 48 hours from ' + requestDetails.field.admin.organization + ' for payment arrangements. Thank you!';
         var mailOptions = {
             from: 'fieldbookingsystem@gmail.com', // sender address
             to: requestDetails.user.userEmail, // list of receivers
