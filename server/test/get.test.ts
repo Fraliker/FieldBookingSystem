@@ -17,7 +17,7 @@ describe('Test requests result', function () {
 	var response;
 		 
     before(function (done) {
-        chai.request("http://localhost:3000")
+        chai.request("http://localhost:8080")
 			.get("/api/request/admin/1")
 			.end(function (err, res) {
 				requestResult = res.body;
