@@ -1,7 +1,5 @@
 <div *ngIf="this.viewRequest" class="container">
-    <h3>Booking Request</h3>
     <create-request [request]="this.selectedRequest" [admin]="true" (notify)='this.onNotify($event)'></create-request>
-
 </div>
 <div *ngIf="!this.viewRequest" class="container">
 

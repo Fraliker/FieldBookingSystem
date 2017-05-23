@@ -37,6 +37,7 @@ export class FieldListViewComponent implements OnInit {
   private sportFilters;
   private fieldTypeFilters;
   private ascending = false;
+  private availableDates = [];
   private myDatePickerOptions = {
       sunHighlight: false,
       dateFormat: 'mm-dd-yyyy',
@@ -123,7 +124,25 @@ export class FieldListViewComponent implements OnInit {
   }
 
    onGetFieldsListSuccess() {
-     console.log(this.fields);
+     // setting available dates
+     this.availableDates = [];
+     var tempDate = new Date();
+     tempDate.setMinutes(parseInt(this.time.substring(this.time.indexOf(':') + 1, this.time.length)));
+
+     if (this.time.substring(this.time.length - 2, this.time.length) == "AM") {
+        tempDate.setHours(parseInt(this.time.substring(0, this.time.indexOf(':'))));
+     } else {
+        tempDate.setHours(parseInt(this.time.substring(0, this.time.indexOf(':'))) + 12);
+     }
+
+     // go back 1 hour
+     var tempStartDate = tempDate;
+     tempStartDate.setHours(tempStartDate.getHours() - 1);
+     this.availableDates.push(tempStartDate);
+
+     for (var i = 1; i < 5; i++) {
+       this.availableDates.push(new Date().setTime(tempStartDate.getTime() + (30*i * 60 * 1000)));
+     }
   }
 
   private setCurrentPosition() {

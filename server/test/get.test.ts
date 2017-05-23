@@ -44,7 +44,7 @@ describe('Test requests result', function () {
 		expect(response.body).to.not.be.a('string');
 
 	});
-	it('The elements in the array have the expecte properties', function(){
+	it('The elements in the array have the expected properties', function(){
 		expect(response.body).to.satisfy(
 			function (body) {
 				for (var i = 0; i < body.length; i++) {
@@ -52,10 +52,8 @@ describe('Test requests result', function () {
 					expect(body[i]).to.have.property('requestId').that.is.a('number');
 					expect(body[i]).to.have.property('field');
 					expect(body[i]).to.have.property('user');
-					expect(body[i]).to.have.property('purpose').that.is.a('string');
 				}
 				return true;
 			});
-	});	
-	
+	});
 });

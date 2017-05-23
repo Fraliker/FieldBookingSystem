@@ -279,7 +279,12 @@ requestsCollection.insert({
         fieldHourlyPrice: 60,
         description: "Ballard Playfield is adjacent to Ballard Community Center and Adams Elementary School. It is a multi-purpose playfield featuring a children's play area and a soccer/baseball/softball field.",
         imageFileURL: "https://www.seattle.gov/images/Departments/ParksAndRecreation/Parks/MNOP/MagnoliaPlayfield1.jpg",
-        address: "2644 NW 60th St., Seattle, WA 98107",
+        address: {
+            number: "2644 NW 60th St.",
+            city: "Seattle",
+            state: "WA",
+            zip: "98107"
+        },
         sport: [{
                 sportName: "Baseball",
                 sportId: 4
@@ -324,7 +329,12 @@ requestsCollection.insert({
         fieldHourlyPrice: 80,
         description: "Cal Anderson is located in Seattle's Capitol Hill neighborhood and is the hub of the community. Cal Anderson Park includes a fountain, texture pool and reflecting pool, promenade paths, landscaping, a shelterhouse, a plaza, a children's play area, a wading pool, a lighted sports field, and a number of oversize chess boards. This open park invites walking, sitting, reading, contemplation, informal sports in the meadow, and organized sports on the athletic field.",
         imageFileURL: "https://media-cdn.tripadvisor.com/media/photo-s/07/96/6d/0d/cal-anderson-park.jpg",
-        address: "1635 11th Ave., Seattle, WA 98122",
+        address: {
+            number: "1635 11th Ave.",
+            city: "Seattle",
+            state: "WA",
+            zip: "98122"
+        },
         sport: [{
             sportName: "Soccer",
             sportId: 1

@@ -1,12 +1,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 <br>
 <div *ngIf="request">
-    <h3>Confirm Booking</h3>
     <create-request [request]="this.userRequest" [admin]="false" (notify)='this.onNotify($event)'></create-request>
 </div>
 
 <div *ngIf="!request">
-    <div class=" container">
+    <div class="container">
         <div class="row">
 
             <div class="col-xs-6 col-sm-3">
@@ -77,11 +76,12 @@
                             <br>
                             <div class="list-group-item">
                                 <ul id="menu">
-                                    <li><button (click)="this.createRequest(this.field, 8, 0)" type="button" class="btn btn-success">08:00AM</button></li>
-                                    <li><button (click)="this.createRequest(this.field, 8, 30)" type="button" class="btn btn-success">08:30AM</button></li>
-                                    <li><button (click)="this.createRequest(this.field, 9, 0)" type="button" class="btn btn-success">09:00AM</button></li>
-                                    <li><button (click)="this.createRequest(this.field, 9, 30)" type="button" class="btn btn-success">09:30AM</button></li>
-                                    <li><button (click)="this.createRequest(this.field, 10, 0)" type="button" class="btn btn-success">10:00AM</button></li>
+                                    <li style="margin-right: 10px" *ngFor="let date of this.availableDates">
+                                        <button (click)="this.createRequest(this.field, 8, 0)" type="button" class="btn btn-success">
+                                        {{date | date: 'shortTime'}}
+                                      </button>
+
+                                    </li>
                                 </ul>
                             </div>
 
