@@ -2,7 +2,7 @@
     <h3 *ngIf="!admin && request.requestId == 0">Confirm Booking</h3>
     <h3 *ngIf="admin || request.requestId != 0">Booking Request</h3>
     <div class="container" width="50%">
-        <form class="form-horizontal">
+        <div class="form-horizontal">
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-3 control-label" for="name">Name</label>
@@ -78,7 +78,7 @@
             <div class="form-group">
                 <label class="col-md-3 control-label" for="city">Purpose:</label>
                 <div class="col-md-6">
-                    <textarea *ngIf="!admin && request.requestId == 0" value="{{request.purpose}}" type="text" placeholder="What is the purpose of your booking?" class="form-control input-md" required="true"></textarea>
+                    <textarea *ngIf="!admin && request.requestId == 0" [(ngModel)]="this.request.purpose" type="text" placeholder="What is the purpose of your booking?" class="form-control input-md" required="true"></textarea>
                     <textarea *ngIf="admin || request.requestId != 0" readonly value="{{request.purpose}}" type="text" placeholder="What is the purpose of your booking?" class="form-control input-md" required=""></textarea>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
