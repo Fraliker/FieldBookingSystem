@@ -5,6 +5,7 @@
     width: 100%;
     border-radius: 0;
     margin-bottom: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .btn-select .btn-select-value {
@@ -42,6 +43,7 @@
     right: -1px;
     top: 33px;
     z-index: 999;
+    font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
 }
 
 .btn-select ul li {
@@ -246,4 +248,5 @@
 
 .sebm-google-map-container {
     height: 300px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

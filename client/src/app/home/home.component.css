@@ -4,6 +4,14 @@
     float: right;
 }
 
+h1 {
+    font-size: 30px;
+}
+
+.welcome {
+    font-size: 20px;
+}
+
 .nav>li>a:focus,
 .nav>li>a:hover {
     text-decoration: none;

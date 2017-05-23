@@ -1,14 +1,30 @@
+.navbar-default {
+    font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+}
+
 .navbar-inner {
     /*height: 90px*/
     min-height: 60px
 }
 
 .navbar .brand {
-    padding: 0 10px;
+    padding: 0 15px 15px 15px;
+}
+
+.navbar-fixed-top {
+    height: 85px;
+}
+
+.navbar {
+    min-height: 85px;
+}
+
+.navbar-nav {
+    padding: 15px 0;
 }
 
 .navbar .nav>li>a {
-    padding: 20px 15px;
+    padding: 20px;
     /*padding: 35px 15px;*/
 }
 
@@ -18,7 +34,8 @@
 }
 
 .brand img {
-    margin-top: 5px
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 @media (max-width:768px) {
