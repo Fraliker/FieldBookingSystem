@@ -15,18 +15,10 @@ export class UserRequestListService {
 
     }
 
-    getRequests(userId) {
-      return Observable.create(observer => {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", this.WebApiUrl + '/user/' + userId);
-
-        xmlhttp.onreadystatechange = function() {
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            observer.next(JSON.parse(xmlhttp.response))
-          }
-        }
-        xmlhttp.send();
-      });
+    getRequests(userId) {  
+      return this.http.get(this.WebApiUrl + '/user/' + userId)
+                      .map((response: Response) => response.json())
+                      .catch(this.handleError);
     }
 
     private handleError(error: Response) {
