@@ -1,6 +1,6 @@
 //load('/Users/Hesham Alsaeedi/OneDrive/Seattle University/Master of Software Engineering/2017/Spring/FieldBookingSystem/FieldBookingSystem/server/scripts/createDb.js')
 
-db = db.getSiblingDB('FRS'); //Database name
+db = db.getSiblingDB('frs'); //Database name
 
 //admins Collection
 //==========================================================
