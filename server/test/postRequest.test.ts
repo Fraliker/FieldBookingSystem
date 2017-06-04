@@ -32,4 +32,13 @@ describe('Test request post status', function () {
 	it('Should return a 200 status code', function (){
 		expect(response).to.have.status(200);
     });
+    
+	it('Should have known properties', function(){
+	    expect(requestResult).to.have.property('requestId');
+	    expect(requestResult).to.have.property('duration').that.equals(120);
+        expect(requestResult).to.have.property('field').that.has.property('fieldHourlyPrice').that.is.a('number');
+		expect(response.body).to.not.be.a('string');
+
+	});
+
 });
