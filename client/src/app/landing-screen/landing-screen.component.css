@@ -1,0 +1,264 @@
+@import url(http://weloveiconfonts.com/api/?family=brandico|entypo|openwebicons|zocial);
+
+/* brandico */
+
+[class*="brandico-"]:before {
+    font-family: 'brandico', sans-serif;
+}
+
+
+/* entypo */
+
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+}
+
+
+/* openwebicons */
+
+[class*="openwebicons-"]:before {
+    font-family: 'OpenWeb Icons', sans-serif;
+}
+
+
+/* zocial */
+
+[class*="zocial-"]:before {
+    font-family: 'zocial', sans-serif;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.login-input {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.login-input-pass {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.signup-input {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.signup-input-confirm {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.create-account {
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.btn-center {
+    width: 50%;
+    text-align: center;
+    margin: inherit;
+}
+
+.social-login-btn {
+    margin: 5px;
+    width: 20%;
+    font-size: 250%;
+    padding: 0;
+}
+
+.social-login-more {
+    width: 45%;
+}
+
+.social-google {
+    background-color: #da573b;
+    border-color: #be5238;
+}
+
+.social-google:hover {
+    background-color: #be5238;
+    border-color: #9b4631;
+}
+
+.social-twitter {
+    background-color: #1daee3;
+    border-color: #3997ba;
+}
+
+.social-twitter:hover {
+    background-color: #3997ba;
+    border-color: #347b95;
+}
+
+.social-facebook {
+    background-color: #4c699e;
+    border-color: #47618d;
+}
+
+.social-facebook:hover {
+    background-color: #47618d;
+    border-color: #3c5173;
+}
+
+.social-linkedin {
+    background-color: #4875B4;
+    border-color: #466b99;
+}
+
+.social-linkedin:hover {
+    background-color: #466b99;
+    border-color: #3b5a7c;
+}
+
+body {
+    padding: 50px;
+}
+
+.icon-circle .fa {
+    font-size: 25px;
+    color: #e84700;
+    margin: 0 auto;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 2px solid #e84700;
+    line-height: 180px;
+    cursor: pointer;
+    -webkit-transition: all ease-in-out 0.35s;
+    -moz-transition: all ease-in-out 0.35s;
+    -o-transition: all ease-in-out 0.35s;
+    -ms-transition: all ease-in-out 0.35s;
+    transition: all ease-in-out 0.20s, background-color ease-in-out 0.05s;
+    vertical-align: middle;
+    font-size: 2em;
+}
+
+.icon-circle .fa:hover {
+    background-color: #e84700;
+    color: #fff;
+    border: 1px solid #e84711;
+    -moz-box-shadow: inset 0px 0px 0px 5px #ffffff;
+    -o-box-shadow: inset 0px 0px 0px 5px #ffffff;
+    -ms-box-shadow: inset 0px 0px 0px 5px #ffffff;
+    -webkit-box-shadow: inset 0px 0px 0px 5px #ffffff;
+    box-shadow: inset 0px 0px 0px 5px #ffffff;
+    -ms-transform: scale(1.2, 1.2);
+    -webkit-transform: scale(1.2, 1.2);
+    -moz-transform: scale(1.2, 1.2);
+    -o-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+}
+
+.icon-circle i:before {
+    margin-left: 0px;
+    font-size: 40px;
+}
+
+@media (min-width:320px) and (max-width:768px) {
+    .icon-circle .fa {
+        font-size: 15px;
+        color: #e84700;
+        margin: 0 auto;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        border: 2px solid #e84700;
+        line-height: 40px;
+        cursor: pointer;
+        -webkit-transition: all ease-in-out 0.35s;
+        -moz-transition: all ease-in-out 0.35s;
+        -o-transition: all ease-in-out 0.35s;
+        -ms-transition: all ease-in-out 0.35s;
+        transition: all ease-in-out 0.20s, background-color ease-in-out 0.05s;
+    }
+    .icon-circle .fa:hover {
+        background-color: #e84700;
+        color: #fff;
+        border: 1px solid #e84711;
+        -moz-box-shadow: inset 0px 0px 0px 5px #ffffff;
+        -o-box-shadow: inset 0px 0px 0px 5px #ffffff;
+        -ms-box-shadow: inset 0px 0px 0px 5px #ffffff;
+        -webkit-box-shadow: inset 0px 0px 0px 5px #ffffff;
+        box-shadow: inset 0px 0px 0px 5px #ffffff;
+        -ms-transform: scale(1.2, 1.2);
+        -webkit-transform: scale(1.2, 1.2);
+        -moz-transform: scale(1.2, 1.2);
+        -o-transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2);
+    }
+    .icon-circle i:before {
+        margin-left: 0px;
+        font-size: 20px;
+    }
+}
+
+.ifacebook .fa {
+    color: #3B5998;
+    border: 2px solid #3B5998;
+    vertical-align: middle;
+    font-size: 60px;
+}
+
+.ifacebook .fa:hover {
+    background-color: #3B5998;
+    color: #fff;
+    border: 1px solid #3B5998;
+    vertical-align: middle;
+}
+
+.itwittter .fa {
+    color: #33ccff;
+    border: 2px solid #33ccff;
+}
+
+.itwittter .fa:hover {
+    background-color: #33ccff;
+    color: #fff;
+    border: 1px solid #33ccff;
+}
+
+.igoogle .fa {
+    color: #BD3518;
+    border: 2px solid #BD3518;
+}
+
+.igoogle .fa:hover {
+    background-color: #BD3518;
+    color: #fff;
+    border: 1px solid #BD3518;
+}
+
+.iLinkedin .fa {
+    color: #007bb7;
+    border: 2px solid #007bb7;
+}
+
+.iLinkedin .fa:hover {
+    background-color: #007bb7;
+    color: #fff;
+    border: 1px solid #007bb7;
+}
+
+.facebookMessage {
+    font-size: 20px;
+}
