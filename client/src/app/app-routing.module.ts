@@ -6,14 +6,18 @@ import { UserRequestListViewComponent } from './user-request-list-view/user-requ
 import { AddNewFieldComponent } from './add-new-field/add-new-field.component';
 import { HomeComponent } from './home/home.component';
 import { CreateRequestComponent } from './create-request/create-request.component';
+import { LandingScreenComponent } from './landing-screen/landing-screen.component';
+import { StandardPageComponent } from './standard-page/standard-page.component';
 
 const appRoutes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: '', pathMatch: 'full', redirectTo: 'landing-screen' },
   { path: 'field-list-view', component: FieldListViewComponent },
   { path: 'request-list-view', component: RequestListViewComponent },
   { path: 'user-request-list-view', component: UserRequestListViewComponent },
   { path: 'add-new-field', component: AddNewFieldComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'landing-screen', component:LandingScreenComponent},
+  { path: 'standard-page', component:StandardPageComponent}
   ];
 
 @NgModule({
@@ -27,5 +31,7 @@ export const routableComponents = [
     RequestListViewComponent,
     AddNewFieldComponent,
     HomeComponent,
-    CreateRequestComponent
+    CreateRequestComponent,
+    LandingScreenComponent,
+    StandardPageComponent
    ];
