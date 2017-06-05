@@ -21,7 +21,7 @@ class FacebookPassport {
         passport.use(new FacebookStrategy({
                 clientID: this.clientId,
                 clientSecret: this.secretId,
-                callbackURL: "http://fieldfindersystemtest.azurewebsites.net/auth/facebook/callback",
+                callbackURL: "http://fieldfindersystem.azurewebsites.net/auth/facebook/callback",
                 profileFields: ['id', 'displayName', 'emails']
             },
             (accessToken, refreshToken, profile, done) => {

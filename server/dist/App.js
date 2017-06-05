@@ -56,11 +56,6 @@ class App {
             res.cookie('User', passport.session.user, options); // options is optional
             res.redirect('/#/home');
         });
-        // route for logging out
-        router.get('/logout', function (req, res) {
-            passport.session.logout();
-            res.redirect('/#/landing-screen');
-        });
         // Field Routes
         // getting available fields
         // query parameters: date, time, city, state, duration
