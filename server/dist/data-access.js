@@ -16,7 +16,8 @@ class DataAccess {
         return this.mongooseInstance;
     }
 }
-DataAccess.DB_CONNECTION_STRING = 'mongodb://dbAdmin:test@localhost:3500/FRS/?authSource=admin';
+//static DB_CONNECTION_STRING:string = 'mongodb://dbAdmin:test@localhost:3500/frs/?authSource=admin';
+DataAccess.DB_CONNECTION_STRING = 'mongodb://dbadmin:test@ds155811.mlab.com:55811/frs';
 DataAccess.connect();
 exports.default = DataAccess;
 

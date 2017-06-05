@@ -10,7 +10,7 @@ const tsProject = ts.createProject('tsconfig.json');
 gulp.task('scripts', () => {
     const tsResult = tsProject.src()
         .pipe(sourcemaps.init())
-        .pipe(tsProject())
+        .pipe(tsProject());
     return tsResult.js
         .pipe(sourcemaps.write('.', { sourceRoot: '' }))
         .pipe(gulp.dest('dist'));

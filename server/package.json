@@ -4,7 +4,7 @@
   "description": "FieldBookingSystem",
   "main": "server.js",
   "scripts": {
-    "start": "gulp scripts assets && node dist/server.js",
+    "start": "node dist/server.js",
     "test": "mocha --reporter spec --compilers ts:ts-node/register test/**/*.test.ts"
   },
   "repository": {
@@ -21,12 +21,19 @@
     "body-parser": "^1.17.1",
     "debug": "^2.6.3",
     "express": "^4.15.2",
+    "express-session": "^1.15.3",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-typescript": "^3.1.6",
     "mongoose": "^4.9.6",
     "morgan": "^1.8.1",
     "nodemailer": "^4.0.1",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
+    "passport-google-oauth2": "^0.1.6",
+    "path": "^0.12.7",
+    "q": "^1.5.0",
     "typescript": "^2.2.2"
   },
   "devDependencies": {
