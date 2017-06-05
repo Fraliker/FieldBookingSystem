@@ -7,6 +7,9 @@ import * as selectizeSettings from "./dropdown-settings";
 import * as _ from 'lodash';
 import {FieldListViewService} from "./field-list-view-service";
 import {CreateRequestComponent} from "../create-request/create-request.component"
+import { AuthService } from '../auth/auth-service';
+import {CookieService} from 'angular2-cookie/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 declare var google: any;
 
@@ -43,16 +46,17 @@ export class FieldListViewComponent implements OnInit {
       dateFormat: 'mm-dd-yyyy',
       showClearDateBtn: false
   };
+  private user;
 
   private userRequest = {
     requestId: 0,
     user: {
-        userName: "user1",
-        userId: 1,
-        firstName: "Hesham",
-        lastName: "Alsaeedi",
+        userName: "",
+        userId: 0,
+        firstName: "",
+        lastName: "",
         phoneNo: "206-618-9002",
-        userEmail: "hisham02@gmail.com"
+        userEmail: ""
     },
     field:{},
     duration: null,
@@ -69,12 +73,18 @@ export class FieldListViewComponent implements OnInit {
   constructor(
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
-    private FieldListViewService: FieldListViewService
+    private FieldListViewService: FieldListViewService,
+    private AuthService: AuthService, private CookieService: CookieService
   ) {}
 
 
   ngOnInit() {
-
+    this.user = JSON.parse(this.CookieService.get('User'));
+    this.userRequest.user.firstName = this.user.displayName.split(" ", 1)[0];
+    this.userRequest.user.lastName = this.user.displayName.split(" ", 2)[1];
+    this.userRequest.user.userId = this.user.id;
+    this.userRequest.user.userEmail = this.user.emails[0].value;
+    console.log("Request:" + this.userRequest);
     this.selectedDate = this.getFormattedDate(this.date);
 
 

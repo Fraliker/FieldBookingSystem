@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
 import {Ng2SelectizeModule} from 'ng2-selectize';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SideNavFiltersComponent } from './side-nav-filters/side-nav-filters.component';
@@ -13,7 +12,9 @@ import {} from '@types/googlemaps';
 import { MyDatePickerModule } from 'mydatepicker';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import {DataTableModule,SharedModule} from 'primeng/primeng';
-import { UserRequestListViewComponent } from './user-request-list-view/user-request-list-view.component';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { AuthGuard } from './auth/auth-guard';
+import { AuthService } from './auth/auth-service';
 
 
 @NgModule({
@@ -21,9 +22,7 @@ import { UserRequestListViewComponent } from './user-request-list-view/user-requ
     AppComponent,
     routableComponents,
     HeaderComponent,
-    SideNavFiltersComponent,
-    UserRequestListViewComponent
-  ],
+    SideNavFiltersComponent  ],
   imports: [
     BrowserModule,
     MyDatePickerModule,
@@ -40,7 +39,9 @@ import { UserRequestListViewComponent } from './user-request-list-view/user-requ
     DataTableModule,SharedModule
 
   ],
-  providers: [],
+    providers: [
+    CookieService,AuthGuard, AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@
 
 <div *ngIf="!this.viewRequest" class="container">
 
-    <h2>User 1 Requests</h2>
+    <h2>{{this.user.displayName}}' s Requests</h2>
 
     <p-dataTable [value]="response" selectionMode="single" [(selection)]="selectedRequest" dataKey="requestId" [rows]="15" [paginator]="true">
         <p-column sortable="true" field="field.fieldName" header="Field Name"></p-column>

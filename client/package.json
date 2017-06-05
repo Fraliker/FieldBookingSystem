@@ -23,6 +23,7 @@
     "@angular/router": "^4.0.0",
     "@types/google-maps": "^3.2.0",
     "angular-2-data-table": "^0.1.2",
+    "angular2-cookie": "^1.2.6",
     "angular2-google-maps": "^0.17.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",

@@ -34,11 +34,11 @@ usersCollection.remove({});
 // Inserting documents
 usersCollection.insert({
     userName: "user1",
-    userId: 1,
+    userId: 10155372395684731,
     firstName: "Hesham",
     lastName: "Alsaeedi",
     phoneNo: "206-618-9002",
-    userEmail: "hisham02@gmail.com"
+    userEmail: "xboxhesh@live.com"
 });
 
 usersCollection.insert({
@@ -52,11 +52,11 @@ usersCollection.insert({
 
 usersCollection.insert({
     userName: "user3",
-    userId: 3,
+    userId: 10209921432537817,
     firstName: "Jacob",
     lastName: "Lee",
     phoneNo: "206-618-9002",
-    userEmail: "leej56@seattleu.edu"
+    userEmail: "jakymonkeyboy@gmail.com"
 });
 
 
@@ -301,11 +301,11 @@ requestsCollection.insert({
     },
     user: {
         userName: "user1",
-        userId: 1,
+        userId: 10155372395684731,
         firstName: "Hesham",
         lastName: "Alsaeedi",
         phoneNo: "206-618-9002",
-        userEmail: "hisham02@gmail.com"
+        userEmail: "xboxhesh@live.com"
     },
     duration: 120,
     purpose: "little league baseball",
@@ -392,11 +392,11 @@ requestsCollection.insert({
     },
     user: {
         userName: "user3",
-        userId: 3,
+        userId: 10209921432537817,
         firstName: "Jacob",
         lastName: "Lee",
         phoneNo: "206-618-9002",
-        userEmail: "leej56@seattleu.edu"
+        userEmail: "jakymonkeyboy@gmail.com"
     },
     duration: 200,
     purpose: "playing soccer with friends",
@@ -438,11 +438,11 @@ requestsCollection.insert({
     },
     user: {
         userName: "user1",
-        userId: 1,
+        userId: 10155372395684731,
         firstName: "Hesham",
         lastName: "Alsaeedi",
         phoneNo: "206-618-9002",
-        userEmail: "hisham02@gmail.com"
+        userEmail: "xboxhesh@live.com"
     },
     duration: 60,
     purpose: "playing soccer with friends",

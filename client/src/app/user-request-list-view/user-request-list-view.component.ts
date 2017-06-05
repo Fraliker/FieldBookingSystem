@@ -3,6 +3,10 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { UserRequestListService } from './user-request-list-service';
 import { LocalDataSource } from 'ng2-smart-table';
 import {DataTableModule,SharedModule} from 'primeng/primeng';
+import { AuthService } from '../auth/auth-service';
+import {CookieService} from 'angular2-cookie/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -34,6 +38,7 @@ export class UserRequestListViewComponent implements OnInit {
 
   private source: LocalDataSource;
 
+  private user;
   private userId: number;
   private errorMessage;
   private data = [];
@@ -42,8 +47,10 @@ export class UserRequestListViewComponent implements OnInit {
   private viewRequest = false;
   selectedResponse;
 
-  constructor(private UserRequestListService: UserRequestListService) {
-    this.userId = 1;
+  constructor(private UserRequestListService: UserRequestListService, private AuthService: AuthService, private CookieService: CookieService) {
+    this.user = JSON.parse(this.CookieService.get('User'));
+    this.userId = this.user.id;
+    console.log(this.userId);
   }
 
   ngOnInit() {
