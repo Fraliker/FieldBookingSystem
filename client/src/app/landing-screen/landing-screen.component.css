@@ -171,12 +171,13 @@ body {
 
 .icon-circle i:before {
     margin-left: 0px;
-    font-size: 40px;
+    font-size: 100px;
+    vertical-align: middle;
 }
 
 @media (min-width:320px) and (max-width:768px) {
     .icon-circle .fa {
-        font-size: 15px;
+        font-size: 100px;
         color: #e84700;
         margin: 0 auto;
         height: 80px;
@@ -208,15 +209,14 @@ body {
     }
     .icon-circle i:before {
         margin-left: 0px;
-        font-size: 20px;
+        font-size: 100px;
     }
 }
 
 .ifacebook .fa {
     color: #3B5998;
     border: 2px solid #3B5998;
-    vertical-align: middle;
-    font-size: 60px;
+    font-size: 100px !important;
 }
 
 .ifacebook .fa:hover {
@@ -224,6 +224,7 @@ body {
     color: #fff;
     border: 1px solid #3B5998;
     vertical-align: middle;
+    font-size: 100px !important;
 }
 
 .itwittter .fa {
@@ -253,6 +254,11 @@ body {
     border: 2px solid #007bb7;
 }
 
+html {
+    background-image: url("https://swimmingworld.azureedge.net/news/wp-content/uploads/2016/05/Soccer_Field.jpg");
+    background-color: #cccccc;
+}
+
 .iLinkedin .fa:hover {
     background-color: #007bb7;
     color: #fff;
@@ -261,4 +267,12 @@ body {
 
 .facebookMessage {
     font-size: 20px;
+}
+
+.fa-mycustomx {
+    font-size: 8em;
+}
+
+.fa-facebook-square {
+    font-size: 100px !important;
 }
