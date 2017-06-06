@@ -82,6 +82,7 @@ export class RequestListViewComponent implements OnInit {
 
   onNotify(back:boolean):void {
     this.viewRequest = back;
+    this.getRequests();
   }
 
 }

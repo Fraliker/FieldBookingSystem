@@ -24,6 +24,16 @@ export class CreateRequestService {
                       .catch(this.handleError);
     }
 
+    updateStatus(request) {  
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+      var body = JSON.stringify(request).toString();
+      console.log(body);
+      return this.http.put(this.WebApiUrl, body, options)
+                      .map((response: Response) => <any>response)
+                      .catch(this.handleError);
+    }
+
 
     private handleError(error: Response) {
         let msg = `Status Code ${error.status} on url ${error.url}`;

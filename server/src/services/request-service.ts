@@ -68,15 +68,10 @@ export class RequestService {
         });
     }
 
-    public updateRequest(jsonObj): any {
-        // logic to retrieve available Requests (mongo code)
-        var query = this.RequestModel.model.find({});
-        query.exec( (err, itemArray) => {
+    public setRequestStatus(response:any, jsonObj): any {
+        this.RequestModel.model.update({'requestId': jsonObj.requestId}, {'status': jsonObj.status},{ multi: true }, function (err, numEffected) {
+            response.send(numEffected);
         });
-    }
-
-    public setRequestStatus(status: string) {
-
     }
 }
 module.exports = new RequestService();

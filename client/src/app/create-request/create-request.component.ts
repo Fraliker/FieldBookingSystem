@@ -39,11 +39,23 @@ export class CreateRequestComponent implements OnInit {
   }
 
   approve() {
-
+    this.request.status = "complete";
+    this.updateStatus();
+    this.goBack();
   }
 
   reject() {
-
+    this.request.status = "rejected";
+    this.updateStatus();
+    this.goBack();
   }
 
+  updateStatus() {
+    this.CreateRequestService.updateStatus(this.request)
+      .subscribe(
+          response => this.response,
+          error => this.errorMessage = <any>error,
+          () => this.onCreateRequestSuccess()
+    );
+  }
 }

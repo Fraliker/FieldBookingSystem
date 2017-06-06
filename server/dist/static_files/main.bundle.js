@@ -85,8 +85,19 @@ var CreateRequestComponent = (function () {
         this.submitted = true;
     };
     CreateRequestComponent.prototype.approve = function () {
+        this.request.status = "complete";
+        this.updateStatus();
+        this.goBack();
     };
     CreateRequestComponent.prototype.reject = function () {
+        this.request.status = "rejected";
+        this.updateStatus();
+        this.goBack();
+    };
+    CreateRequestComponent.prototype.updateStatus = function () {
+        var _this = this;
+        this.CreateRequestService.updateStatus(this.request)
+            .subscribe(function (response) { return _this.response; }, function (error) { return _this.errorMessage = error; }, function () { return _this.onCreateRequestSuccess(); });
     };
     return CreateRequestComponent;
 }());
@@ -485,6 +496,15 @@ var CreateRequestService = (function () {
         var body = JSON.stringify(request).toString();
         console.log(body);
         return this.http.post(this.WebApiUrl + '/' + userId, body, options)
+            .map(function (response) { return response; })
+            .catch(this.handleError);
+    };
+    CreateRequestService.prototype.updateStatus = function (request) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({ 'Content-Type': 'application/json' });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        var body = JSON.stringify(request).toString();
+        console.log(body);
+        return this.http.put(this.WebApiUrl, body, options)
             .map(function (response) { return response; })
             .catch(this.handleError);
     };
@@ -1122,6 +1142,7 @@ var RequestListViewComponent = (function () {
     };
     RequestListViewComponent.prototype.onNotify = function (back) {
         this.viewRequest = back;
+        this.getRequests();
     };
     return RequestListViewComponent;
 }());
