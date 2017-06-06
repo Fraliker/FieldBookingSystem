@@ -113,6 +113,12 @@ class App {
             RequestService.addRequest(res, jsonObj);
             return res;
         });
+        // updating request status
+        router.put('/api/request', (req, res) => {
+            var jsonObj = req.body;
+            var id = RequestService.setRequestStatus(res, jsonObj);
+            return res;
+        });
         // Field Type Routes
         // Get field types
         router.get('/api/fieldType/', (req, res) => {

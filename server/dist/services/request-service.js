@@ -55,13 +55,10 @@ class RequestService {
             });
         });
     }
-    updateRequest(jsonObj) {
-        // logic to retrieve available Requests (mongo code)
-        var query = this.RequestModel.model.find({});
-        query.exec((err, itemArray) => {
+    setRequestStatus(response, jsonObj) {
+        this.RequestModel.model.update({ 'requestId': jsonObj.requestId }, { 'status': jsonObj.status }, { multi: true }, function (err, numEffected) {
+            response.send(numEffected);
         });
-    }
-    setRequestStatus(status) {
     }
 }
 exports.RequestService = RequestService;

@@ -1,5 +1,5 @@
 class facebookOauth2 {
-  static id: string = '232900217204539';
-  static secret:string = 'be181ac1218b863b9cd3b487f8ec8ccd';
+  static id: string = '1379081352184703';
+  static secret:string = 'a0d0e81d14f392250ac03f9db7153b39';
 }
 export default facebookOauth2;
